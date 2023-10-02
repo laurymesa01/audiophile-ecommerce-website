@@ -1,0 +1,23 @@
+.header-section{
+  height: 700px;
+  background-image: url('../../../assets/home/desktop/image-hero.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.headphones-img{
+  top: -40px;
+}
+
+.orange-section{
+  height: 400px;
+  background-image: url('../../../assets/home/desktop/pattern-circles.svg');
+  background-repeat: no-repeat;
+  background-position: start;
+}
+
+.image-background{
+  background-image: url('../../../assets/home/desktop/image-speaker-zx7.jpg');
+  background-position: center;
+  background-size: cover;
+}
