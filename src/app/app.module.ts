@@ -7,14 +7,16 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CategoryComponent,
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
