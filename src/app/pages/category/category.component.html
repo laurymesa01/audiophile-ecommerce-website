@@ -1,16 +1,10 @@
 <section class="bg-almost-black flex justify-center items-center h-60">
-  <h2 class="text-white text-4xl font-bold uppercase"></h2>
+  <h2 class="text-white text-4xl font-bold uppercase">{{category}}</h2>
 </section>
 
 <section>
-  <section>
-    <div></div>
-    <div>
-      <p></p>
-      <h2></h2>
-      <p></p>
-      <button></button>
-    </div>
+  <section *ngFor="let product of products">
+    <app-product-card></app-product-card>
   </section>
 
   <section></section>

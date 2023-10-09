@@ -14,7 +14,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'category',
+        path: '',
         component: CategoryComponent,
         children: [
           {
