@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -14,22 +16,16 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: '',
-        component: CategoryComponent,
-        children: [
-          {
-            path: 'headphones',
-            component: CategoryComponent
-          },
-          {
-            path: 'speakers',
-            component: CategoryComponent
-          },
-          {
-            path: 'earphones',
-            component: CategoryComponent
-          },
-        ]
+        path: ':category',
+        component: CategoryComponent
+      },
+      {
+        path: 'products/:id',
+        component: ProductDetailComponent
+      },
+      {
+        path: 'checkout',
+        component: CheckoutComponent
       }
     ]
   }

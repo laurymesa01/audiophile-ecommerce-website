@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Products } from 'src/app/interfaces/product.interface';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,4 +9,20 @@ import { Component } from '@angular/core';
 })
 export class LayoutComponent {
 
+  products: Products[] = [];
+
+  categories: Array<string> = [
+    "headphones",
+    "speakers",
+    "earphones"
+  ]
+  modal: boolean = false;
+
+  constructor(private productService: ProductService){}
+
+  openCart(){
+    if(!this.modal){
+      this.modal = true;
+    }
+  }
 }

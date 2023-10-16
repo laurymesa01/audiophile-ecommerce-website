@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Products } from 'src/app/interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +12,7 @@ import { ProductService } from '../../services/product.service';
 export class CategoryComponent implements OnInit{
 
   products: Products[] = [];
-  category = ''
+  category: string = '';
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
@@ -20,11 +21,13 @@ export class CategoryComponent implements OnInit{
               }
 
   ngOnInit(){
-    this.category = this.router.url.slice(1);
-    this.productService.getProductsByCategory(this.category).subscribe(products => {
-      this.products = products;
-      console.log(this.products);
-    })
+    this.activatedRoute.params
+      .pipe(switchMap(({category}) => this.productService.getProductsByCategory(category)))
+      .subscribe(products => {
+        this.products = products
+        console.log(this.products);
+
+      })
   }
 
 }

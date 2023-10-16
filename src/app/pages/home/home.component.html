@@ -1,4 +1,4 @@
-<section class="header-section px-32 bg-almost-black text-white flex flex-row justify-between">
+<section class="header-section px-32 text-white flex flex-row justify-between">
   <div class="flex flex-col justify-center items-start">
     <p class="uppercase tracking-widest opacity-25 ">New product</p>
     <h2 class="mt-4 text-5xl font-bold uppercase">XX99 Mark II <br> Headphones</h2>
@@ -8,48 +8,20 @@
 </section>
 
 <section class="px-32 py-40">
-  <section class="grid grid-cols-3 gap-x-14">
-    <div class="bg-dark-grey h-50 w-66 pb-4 flex flex-col justify-end items-center rounded relative">
-      <img src="../../../assets/shared/desktop/image-category-thumbnail-headphones.png" alt="" class="headphones-img w-44 h-44 absolute">
-      <p class="mb-4 uppercase text-lg font-bold tracking-wider">Headphones</p>
-      <p class="uppercase hover:text-dark-orange cursor-pointer font-medium flex  opacity-50">
-        Shop
-        <span>
-          <svg width="8" height="12" class="ml-3 mt-1.5" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
-        </span>
-      </p>
-    </div>
-    <div class="bg-dark-grey h-50 w-66 pb-4 flex flex-col justify-end items-center rounded relative">
-      <img src="../../../assets/shared/desktop/image-category-thumbnail-speakers.png" alt="" class="speakers-img w-44 h-44 absolute">
-      <p class="mb-4 uppercase text-lg font-bold tracking-wider">Speakers</p>
-      <p class="uppercase hover:text-dark-orange cursor-pointer font-medium flex opacity-50">
-        Shop
-        <span>
-          <svg width="8" height="12" class="ml-3 mt-1.5" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
-        </span>
-      </p>
-    </div>
-    <div class="bg-dark-grey h-50 w-66 pb-4 flex flex-col justify-end items-center rounded">
-      <img src="../../../assets/shared/desktop/image-category-thumbnail-earphones.png" alt="" class="earphones-img w-36 h-36">
-      <p class="mb-4 uppercase text-lg font-bold tracking-wider">Earphones</p>
-      <p class="flex uppercase hover:text-dark-orange cursor-pointer font-medium  opacity-50">
-        Shop
-        <span>
-          <svg width="8" height="12" class="ml-3 mt-1.5" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
-        </span>
-      </p>
-    </div>
-  </section>
+
+  <app-cards></app-cards>
 
 
   <section class="orange-section bg-dark-orange rounded h-80 mt-40 px-60 text-white grid grid-cols-2 relative">
     <div>
-      <img src="../../../assets/home/desktop/image-speaker-zx9.png" alt="" class="h-64 w-50 absolute bottom-0">
+      <img src="../../../assets/home/desktop/image-speaker-zx9.png" alt="" class="w-50 absolute bottom-0">
     </div>
-    <div class="flex flex-col justify-center items-start">
+    <div class="flex flex-col justify-center items-start ml-12">
       <h2 class="text-6xl uppercase font-medium mb-6">ZX9 <br> speaker</h2>
       <p class="mb-6">Upgrade to premium speakers that are <br> phenomenally built to deliver truly remarkable <br> sound. </p>
-      <button type="button" class="py-2.5 px-8 mr-2 mb-2 text-sm font-medium bg-black hover:bg-grey rounded-sm uppercase cursor-pointer">See product</button>
+      <a href="">
+        <button type="button" class="py-2.5 px-8 mr-2 mb-2 text-sm font-medium bg-black hover:bg-grey rounded-sm uppercase cursor-pointer">See product</button>
+      </a>
     </div>
   </section>
 

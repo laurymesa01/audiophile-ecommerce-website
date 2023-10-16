@@ -36,3 +36,4 @@ export interface Other {
   name:  string;
   image: CategoryImage;
 }
+

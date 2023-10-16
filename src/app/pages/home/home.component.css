@@ -5,19 +5,15 @@
   background-size: cover;
 }
 
-.headphones-img{
-  top: -60px;
-}
-
-.speakers-img{
-  top: -60px
-}
-
 .orange-section{
-  height: 400px;
+  height: 600px;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
   background-repeat: no-repeat;
   background-position: start;
+}
+
+.orange-section img{
+  height: 450px;
 }
 
 .image-background{
