@@ -1,0 +1,7 @@
+.add{
+  height: 88%;
+}
+
+.photo-cards-section{
+  grid-template-columns: 40% 60%;
+}

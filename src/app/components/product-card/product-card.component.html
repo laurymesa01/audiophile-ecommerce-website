@@ -1,9 +1,9 @@
 <div class="">
-  <p *ngIf="product.new" class="uppercase text-dark-orange tracking-widest mb-8 opacity-70">New product</p>
+  <p *ngIf="product.new" class="new uppercase text-dark-orange tracking-widest mb-8 opacity-70">New product</p>
   <h2 class="text-6xl uppercase font-bold mb-8">{{product.name}}</h2>
   <p class="opacity-50 mb-12">{{product.description}}</p>
   <a [routerLink]="['/products', product.id]">
-    <button type="button" class="py-2.5 px-8 mr-2 mb-2 text-sm font-semibold focus:outline-none bg-dark-orange hover:bg-light-orange  uppercase text-white">See product</button>
+    <button type="button" class="btn-orange">See product</button>
   </a>
 </div>
 

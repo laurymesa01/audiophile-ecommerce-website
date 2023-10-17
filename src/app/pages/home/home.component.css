@@ -5,6 +5,10 @@
   background-size: cover;
 }
 
+.header-section .new{
+  letter-spacing: 0.4em;
+}
+
 .orange-section{
   height: 600px;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
@@ -13,11 +17,15 @@
 }
 
 .orange-section img{
-  height: 450px;
+  height: 480px;
+  bottom: -9px;
 }
 
 .image-background{
+  height: 400px;
   background-image: url('../../../assets/home/desktop/image-speaker-zx7.jpg');
   background-position: center;
   background-size: cover;
 }
+
+

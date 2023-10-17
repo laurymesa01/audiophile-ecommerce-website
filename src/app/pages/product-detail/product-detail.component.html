@@ -1,5 +1,7 @@
-<section class="px-40">
-  <section class="mt-40 grid grid-cols-2 space-x-8">
+<section class="px-40 py-16">
+  <button (click)="goBack()">Go back</button>
+
+  <section class="mt-10 grid grid-cols-2 space-x-8">
     <div class="pr-12">
       <img [src]="product.image.desktop" alt="" class="rounded">
     </div>
@@ -9,11 +11,11 @@
       <p class="mb-6 opacity-50">{{product.description}}</p>
       <p class="font-bold mb-8">{{product.price | currency}}</p>
       <div class="flex flex-row space-x-4">
-        <button type="button" class="bg-dark-grey pl-12 pr-4 py-2 flex flex-row rounded-sm font-bold">
+        <button type="button" class="add bg-dark-grey pl-12 pr-4 py-3 flex flex-row rounded-sm font-bold">
           1
-          <p class="ml-10 opacity-40 text-sm hover:text-dark-orange">+</p>
+          <span class="ml-10 opacity-40 text-sm hover:text-dark-orange">+</span>
         </button>
-        <button class="bg-dark-orange px-6 py-2 rounded-sm text-sm text-opacity-90 uppercase font-bold text-white hover:bg-light-orange">Add to cart</button>
+        <button class=" btn-orange" (click)="addToCart()">Add to cart</button>
       </div>
     </div>
   </section>
@@ -34,13 +36,13 @@
     </div>
   </section>
 
-  <section class="mt-40 grid grid-cols-2 space-x-4">
-    <div class="space-y-4">
+  <section class="photo-cards-section mt-40 grid space-x-8">
+    <div class="flex flex-col justify-between">
       <div>
-        <img [src]="product.gallery.first.desktop" alt="" class="rounded w-full">
+        <img [src]="product.gallery.first.desktop" alt="" class="rounded h-full w-full">
       </div>
       <div>
-        <img [src]="product.gallery.second.desktop" alt="" class="rounded w-full">
+        <img [src]="product.gallery.second.desktop" alt="" class="rounded h-full w-full">
       </div>
     </div>
     <div>
@@ -58,7 +60,7 @@
         <div class="flex flex-col items-center">
           <h4 class="text-2xl uppercase font-semibold mt-6 mb-8">{{item.name}}</h4>
           <a href="" class="">
-            <button class="px-6 py-2 bg-dark-orange hover:bg-light-orange text-white rounded-sm uppercase tracking-wide text-sm">See product</button>
+            <button class="btn-orange">See product</button>
           </a>
         </div>
       </div>

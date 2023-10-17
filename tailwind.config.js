@@ -17,7 +17,8 @@ module.exports = {
     },
     fontFamily: {
       'manrope': 'Manrope'
-    }
+    },
+
   },
   plugins: [],
 }

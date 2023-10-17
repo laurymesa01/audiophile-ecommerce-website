@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ProductService } from '../../services/product.service';
@@ -10,6 +11,8 @@ import { Products } from 'src/app/interfaces/product.interface';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit{
+
+  @Output() addProduct = new EventEmitter<Products>
 
   product: Products = {
     id: 0,
@@ -52,15 +55,23 @@ export class ProductDetailComponent implements OnInit{
   };
 
   constructor(private activatedRoute: ActivatedRoute,
-              private productService: ProductService){}
+              private productService: ProductService,
+              private location: Location){}
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(switchMap(({id}) => this.productService.getProductById(id)))
       .subscribe(product => {
         this.product = product
-
       })
+  }
+
+  goBack(){
+    this.location.back();
+  }
+
+  addToCart(){
+    this.addProduct.emit(this.product);
   }
 
 }
