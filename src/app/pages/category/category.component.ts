@@ -25,9 +25,8 @@ export class CategoryComponent implements OnInit{
       .pipe(switchMap(({category}) => this.productService.getProductsByCategory(category)))
       .subscribe(products => {
         this.products = products
+        this.category = this.products[0].category;
         console.log(this.products);
-
       })
   }
-
 }

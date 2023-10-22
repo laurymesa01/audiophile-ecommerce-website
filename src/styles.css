@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.h{
+  @apply mb-6 font-bold uppercase;
+}
+
 .btn-orange{
   @apply py-3 px-6 mr-2 mb-2 text-sm font-semibold focus:outline-none bg-dark-orange hover:bg-light-orange uppercase tracking-wider text-white rounded-sm;
 }

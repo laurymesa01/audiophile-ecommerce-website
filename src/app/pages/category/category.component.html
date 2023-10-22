@@ -1,19 +1,17 @@
 <section class="bg-almost-black flex justify-center items-center h-60">
-  <h2 class="text-white text-4xl font-bold uppercase">{{products[0].category}}</h2>
+  <h2 class="text-white text-4xl font-bold uppercase">{{category}}</h2>
 </section>
 
 <section class="px-32 py-40">
-  <section *ngFor="let product of products">
+  <section *ngFor="let product of products | reverse; let indice = index">
     <div class="grid grid-cols-2 space-x-14 mb-24">
-      <div>
+      <div [ngStyle]="{'grid-column-start':indice%2==0?1:2}">
         <img [src]="product.categoryImage.desktop" alt="">
       </div>
-      <div class="flex flex-col justify-center items-start">
+      <div class="flex flex-col justify-center items-start" [ngStyle]="{'grid-column-start':indice%2==0?2:1}">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
-    <div></div>
-    <div></div>
   </section>
 
   <section class="mt-40">
