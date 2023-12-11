@@ -1,11 +1,11 @@
-<section class="px-40 py-16">
-  <button (click)="goBack()">Go back</button>
+<section class="px-32 py-16">
+  <button (click)="goBack()" class="btn-back">Go back</button>
 
   <section class="mt-10 grid grid-cols-2 space-x-8">
     <div class="pr-12">
       <img [src]="product.image.desktop" alt="" class="rounded">
     </div>
-    <div class="flex flex-col items-start justify-center pl-4">
+    <div class="flex flex-col items-start justify-center pl-4 pr-32">
       <p *ngIf="product.new" class="uppercase text-light-orange tracking-widest mb-4">New product</p>
       <h2 class="h text-5xl">{{product.name}}</h2>
       <p class="mb-6 opacity-50">{{product.description}}</p>
@@ -15,7 +15,7 @@
           1
           <span class="ml-10 opacity-40 text-sm hover:text-dark-orange">+</span>
         </button>
-        <button class=" btn-orange" (click)="addToCart()">Add to cart</button>
+        <button class="btn btn-orange" (click)="addToCart()">Add to cart</button>
       </div>
     </div>
   </section>
@@ -60,7 +60,7 @@
         <div class="flex flex-col items-center">
           <h4 class="text-2xl uppercase font-semibold mt-6 mb-8">{{item.name}}</h4>
           <a href="" class="">
-            <button class="btn-orange">See product</button>
+            <button class="btn btn-orange">See product</button>
           </a>
         </div>
       </div>

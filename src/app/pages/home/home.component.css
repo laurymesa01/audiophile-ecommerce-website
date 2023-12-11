@@ -1,28 +1,29 @@
 .header-section{
-  height: 700px;
+  height: 110vh;
   background-image: url('../../../assets/home/desktop/image-hero.jpg');
   background-position: center;
   background-size: cover;
 }
 
 .header-section .new{
-  letter-spacing: 0.4em;
+  letter-spacing: 0.5em;
 }
 
 .orange-section{
-  height: 600px;
+  height: 100vh;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
   background-repeat: no-repeat;
-  background-position: start;
+  background-size: 73% 200%;
+  background-position: -100px -100px;
 }
 
 .orange-section img{
-  height: 480px;
-  bottom: -9px;
+  height: 75vh;
+  bottom: -10px;
 }
 
 .image-background{
-  height: 400px;
+  height: 60vh;
   background-image: url('../../../assets/home/desktop/image-speaker-zx7.jpg');
   background-position: center;
   background-size: cover;

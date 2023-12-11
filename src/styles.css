@@ -7,10 +7,18 @@
   @apply mb-6 font-bold uppercase;
 }
 
+.btn{
+  @apply py-3 px-6 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider
+}
+
 .btn-orange{
-  @apply py-3 px-6 mr-2 mb-2 text-sm font-semibold focus:outline-none bg-dark-orange hover:bg-light-orange uppercase tracking-wider text-white rounded-sm;
+  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white;
 }
 
 .btn-border{
-  @apply py-3 px-6 mr-2 mb-2 mt-6 text-sm font-semibold uppercase border-2 border-black hover:bg-black hover:text-white tracking-wider;
+  @apply border border-black hover:bg-black hover:text-white;
+}
+
+.btn-back{
+  @apply opacity-60 hover:text-dark-orange
 }

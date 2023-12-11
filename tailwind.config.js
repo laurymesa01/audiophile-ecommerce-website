@@ -13,7 +13,7 @@ module.exports = {
       'dark-grey': '#F1F1F1',
       'grey': '#4C4C4C',
       'light-grey': '#FAFAFA',
-      'almost-black': '#101010'
+      'almost-black': '#141414'
     },
     fontFamily: {
       'manrope': 'Manrope'
