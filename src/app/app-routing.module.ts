@@ -16,6 +16,10 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
+        path: 'checkout',
+        component: CheckoutComponent
+      },
+      {
         path: ':category',
         component: CategoryComponent
       },
@@ -23,10 +27,6 @@ const routes: Routes = [
         path: 'products/:id',
         component: ProductDetailComponent
       },
-      {
-        path: 'checkout',
-        component: CheckoutComponent
-      }
     ]
   }
 ];

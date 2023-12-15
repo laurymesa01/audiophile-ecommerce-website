@@ -3,10 +3,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.h{
-  @apply mb-6 font-bold uppercase;
+.h1{
+  @apply text-6xl font-bold uppercase
 }
 
+.h2{
+  @apply text-4xl font-bold leading-10 uppercase;
+}
+.h3{
+  @apply text-3xl font-bold leading-9 uppercase;
+}
+
+.h4{
+  @apply text-2xl font-bold uppercase;
+}
+
+.h5{
+  @apply text-2xl font-bold uppercase;
+}
+
+.h6{
+  @apply text-lg uppercase font-bold text-black;
+}
+
+.subtitle{
+  @apply text-dark-orange uppercase font-bold text-sm leading-6;
+}
+
+.label{
+  @apply text-xs font-bold mb-2;
+}
+
+.input{
+  @apply border
+}
 .btn{
   @apply py-3 px-6 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider
 }

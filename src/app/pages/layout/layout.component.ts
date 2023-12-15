@@ -21,8 +21,6 @@ export class LayoutComponent {
   constructor(private productService: ProductService){}
 
   openCart(){
-    if(!this.modal){
-      this.modal = true;
-    }
+    this.modal = !this.modal;
   }
 }

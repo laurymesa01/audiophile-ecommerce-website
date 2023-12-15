@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { ProductService } from '../../services/product.service';
 import { Products } from 'src/app/interfaces/product.interface';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,7 +13,6 @@ import { Products } from 'src/app/interfaces/product.interface';
 })
 export class ProductDetailComponent implements OnInit{
 
-  @Output() addProduct = new EventEmitter<Products>
 
   product: Products = {
     id: 0,
@@ -56,7 +56,8 @@ export class ProductDetailComponent implements OnInit{
 
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
-              private location: Location){}
+              private location: Location,
+              private cartService: CartService){}
 
   ngOnInit(): void {
     this.activatedRoute.params
@@ -70,8 +71,8 @@ export class ProductDetailComponent implements OnInit{
     this.location.back();
   }
 
-  addToCart(){
-    this.addProduct.emit(this.product);
+  addToCart(product: Products){
+    this.cartService.changeCart(product);
   }
 
 }

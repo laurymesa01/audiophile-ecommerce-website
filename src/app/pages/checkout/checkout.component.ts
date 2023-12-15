@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-checkout',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class CheckoutComponent {
 
+  constructor(private location: Location){}
+
+  goBack(){
+    this.location.back();
+  }
 }

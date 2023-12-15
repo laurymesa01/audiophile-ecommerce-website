@@ -6,7 +6,11 @@
 }
 
 .header-section .new{
-  letter-spacing: 0.5em;
+  letter-spacing: 10px;
+}
+
+h1{
+  letter-spacing: 2px;
 }
 
 .orange-section{
