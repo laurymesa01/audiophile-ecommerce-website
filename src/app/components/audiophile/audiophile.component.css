@@ -1,0 +1,13 @@
+section div:first-child{
+  padding-right: 35%;
+}
+
+section div:first-child h2{
+  padding-right: 10%;
+  letter-spacing: 1.43px;
+}
+
+section div:first-child p{
+  line-height: 25px;
+  font-size: 15px;
+}

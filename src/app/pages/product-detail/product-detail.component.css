@@ -1,5 +1,18 @@
+.product-card{
+  padding-right: 30%;
+}
+
+.product-card .new{
+  letter-spacing: 0.4em;
+}
+
 .add{
   height: 88%;
+}
+
+.add:hover span{
+  color: #D87D4A;
+  opacity: 1;
 }
 
 .photo-cards-section{

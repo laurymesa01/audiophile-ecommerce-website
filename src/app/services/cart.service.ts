@@ -17,9 +17,11 @@ export class CartService {
     let cantidad = 0;
     if(listCart && listCart.length > 0){
       let objIndex = listCart.findIndex((obj => obj.id == product.id));
-      listCart[objIndex].quantity = 0;
+      // listCart[objIndex].quantity = 0;
+      Object.defineProperty(listCart[objIndex], "quantity", {
+        value: 0
+      });
       if(objIndex != -1){
-        cantidad += 1;
         listCart[objIndex].quantity += 1;
       }
       else{

@@ -1,6 +1,7 @@
 form{
   width: 50vw;
 }
+
 h3{
   letter-spacing: 1.14px;
 }
@@ -12,3 +13,24 @@ label{
   letter-spacing: -0.21px;
 }
 
+input, .input-radio{
+  border: 1px solid #CFCFCF;
+  padding: 8px;
+}
+
+.input-radio{
+  height: 6vh;
+}
+
+.input-radio:focus{
+    border: 1px solid #D87D4A;
+    /* outline: none; */
+}
+
+.input-radio:hover{
+  border: 1px solid #D87D4A;
+}
+
+.input-radio input{
+  appearance: none;
+}

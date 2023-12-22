@@ -5,15 +5,15 @@
     <div class="pr-12">
       <img [src]="product.image.desktop" alt="" class="rounded">
     </div>
-    <div class="flex flex-col items-start justify-center pl-4 pr-32">
-      <p *ngIf="product.new" class="uppercase text-light-orange tracking-widest mb-4">New product</p>
-      <h2 class="h text-5xl">{{product.name}}</h2>
+    <div class="product-card flex flex-col items-start justify-center pl-4">
+      <p *ngIf="product.new" class="new uppercase text-light-orange tracking-widest mb-4">New product</p>
+      <h2 class="h2 mb-6">{{product.name}}</h2>
       <p class="mb-6 opacity-50">{{product.description}}</p>
       <p class="font-bold mb-8">{{product.price | currency}}</p>
       <div class="flex flex-row space-x-4">
         <button type="button" class="add bg-dark-grey pl-12 pr-4 py-3 flex flex-row rounded-sm font-bold">
           1
-          <span class="ml-10 opacity-40 text-sm hover:text-dark-orange">+</span>
+          <span class="ml-10 opacity-40 text-sm">+</span>
         </button>
         <button class="btn btn-orange" (click)="addToCart(product)">Add to cart</button>
       </div>

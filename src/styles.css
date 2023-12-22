@@ -34,9 +34,13 @@
   @apply text-xs font-bold mb-2;
 }
 
-.input{
-  @apply border
+.div-card{
+  @apply bg-dark-grey pb-4 flex flex-col justify-end items-center rounded relative cursor-pointer
 }
+.input{
+  @apply rounded-md text-black text-sm opacity-60 focus:outline-none border focus:border-dark-orange hover:border-dark-orange;
+}
+
 .btn{
   @apply py-3 px-6 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider
 }
@@ -50,5 +54,5 @@
 }
 
 .btn-back{
-  @apply opacity-60 hover:text-dark-orange
+  @apply opacity-60 hover:text-dark-orange hover:opacity-100;
 }

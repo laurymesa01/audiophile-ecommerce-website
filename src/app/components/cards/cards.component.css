@@ -1,8 +1,37 @@
+.card{
+  height: 30vh;
+  width: 25vw;
+}
+
+.card img{
+  height: 25vh;
+  width: 12vw;
+}
+.card p{
+  letter-spacing: 1.29px;
+}
+
+.card div p{
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.card:hover div{
+  color: #D87D4A;
+}
+
+.card:hover div p{
+  opacity: 1;
+}
 
 .headphones-img{
   top: -60px;
 }
 
 .speakers-img{
-  top: -60px
+  top: -60px;
+}
+
+.earphones-img{
+  top: -50px;
 }
