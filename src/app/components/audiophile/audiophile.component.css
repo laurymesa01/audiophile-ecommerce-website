@@ -1,13 +1,41 @@
-section div:first-child{
-  padding-right: 35%;
+section{
+  height: 80vh;
 }
 
-section div:first-child h2{
-  padding-right: 10%;
-  letter-spacing: 1.43px;
+
+@media screen and (min-width: 640px) {
+
+  section img{
+    display: none;
+  }
+  section div:first-child{
+    background-image: url('../../../assets/shared/tablet/image-best-gear.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
 
-section div:first-child p{
-  line-height: 25px;
-  font-size: 15px;
+@media screen and (min-width: 1024px) {
+  section{
+    height: 120vh;
+  }
+
+  section img{
+    display: block;
+  }
+
+  section div{
+    height: 100%;
+  }
+
+  /* section div:first-child h2{
+    padding-right: 10%;
+    letter-spacing: 1.43px;
+}
+
+  section div:first-child p{
+    line-height: 25px;
+    font-size: 15px;
+  } */
 }

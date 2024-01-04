@@ -7,40 +7,45 @@ import { Products } from '../interfaces/product.interface';
 })
 export class CartService {
 
-  private cart = new BehaviorSubject<Array<any>>([]);
+  private myShopingCart: Products[] = [];
+  private cart = new BehaviorSubject<Array<Products>>([]);
   public currentDataCart$ = this.cart.asObservable();
+  total = 0;
 
   constructor() { }
 
+  // public changeCart(product: Products){
+  //   this.myShopingCart = this.cart.getValue();
+  //   if(this.myShopingCart && this.myShopingCart.length > 0){
+  //     let objIndex = this.myShopingCart.findIndex((obj => obj.id == product.id));
+  //     listCart[objIndex].quantity = 0;
+  //     Object.defineProperty(this.myShopingCart[objIndex], "quantity", {
+  //       value: 0
+  //     });
+  //     if(objIndex != -1){
+  //       listCart[objIndex].quantity += 1;
+  //     }
+  //       listCart.push(product);
+  //   }
+  //   else{
+  //     listCart = [];
+  //     listCart.push(product,);
+  //   }
+  //   this.cart.next(listCart);
+  // }
+
   public changeCart(product: Products){
-    let listCart = this.cart.getValue();
-    let cantidad = 0;
-    if(listCart && listCart.length > 0){
-      let objIndex = listCart.findIndex((obj => obj.id == product.id));
-      // listCart[objIndex].quantity = 0;
-      Object.defineProperty(listCart[objIndex], "quantity", {
-        value: 0
-      });
-      if(objIndex != -1){
-        listCart[objIndex].quantity += 1;
-      }
-      else{
-        listCart.push(product);
-      }
-    }
-    else{
-      listCart = [];
-      listCart.push(product,);
-    }
-    this.cart.next(listCart);
+    this.myShopingCart.push(product);
+    this.cart.next(this.myShopingCart);
   }
 
   public removeElements(){
-    let listCart = this.cart.getValue();
-    if(listCart.length > 0){
-      listCart = [];
+    this.myShopingCart = this.cart.getValue();
+    // let listCart = this.cart.getValue();
+    if(this.myShopingCart.length > 0){
+      this.myShopingCart = [];
     }
-    this.cart.next(listCart);
+    this.cart.next(this.myShopingCart);
   }
 
   public removeElementCart(product: Products){
@@ -50,6 +55,13 @@ export class CartService {
       listCart.splice(objIndex,1);
     }
     this.cart.next(listCart);
+  }
+
+  getTotal() {
+    return (this.total = this.myShopingCart.reduce(
+      (sum, item) => sum + item.price,
+      0
+    ));
   }
 
 

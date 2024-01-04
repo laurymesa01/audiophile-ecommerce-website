@@ -16,6 +16,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ReversePipe } from './pipes/reverse.pipe';
+import { BillComponent } from './components/bill/bill.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
     CheckoutComponent,
     CardsComponent,
     ReversePipe,
+    BillComponent,
   ],
   imports: [
     BrowserModule,

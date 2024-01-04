@@ -23,7 +23,7 @@ export class CartComponent implements OnInit{
       if(products && products.length > 0){
         this.products = products;
         this.totalQuantity = products.length;
-        this.totalPrice = products.reduce((sum, current) => sum + (current.price * current.quantity), 0);
+        this.totalPrice = products.reduce((sum, current) => sum + (current.price), 0);
         console.log('products',this.products);
         console.log('quantity',this.totalQuantity);
         console.log('price',this.totalPrice);

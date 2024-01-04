@@ -34,3 +34,12 @@ input, .input-radio{
 .input-radio input{
   appearance: none;
 }
+
+.products-checkout{
+  width: 20vw;
+  height: 80vh;
+}
+
+button{
+  letter-spacing: 1px;
+}
