@@ -1,14 +1,14 @@
-<section class="px-32 py-16">
+<section class="main-section py-16">
   <button (click)="goBack()" class="btn-back">Go back</button>
 
-  <section class="mt-10 grid grid-cols-2 space-x-8">
-    <div class="pr-12">
-      <img [src]="product.image.desktop" alt="" class="rounded">
+  <section class="mt-10 flex flex-col md:grid md:grid-cols-2 md:space-x-8">
+    <div class="md:pr-12">
+      <img [src]="product.image.desktop" alt="" class="rounded mb-8 md:mb-0">
     </div>
-    <div class="product-card flex flex-col items-start justify-center pl-4">
+    <div class="product-card flex flex-col items-center md:items-start justify-center md:pl-4">
       <p *ngIf="product.new" class="new uppercase text-light-orange tracking-widest mb-4">New product</p>
-      <h2 class="h2 mb-6">{{product.name}}</h2>
-      <p class="mb-6 opacity-50">{{product.description}}</p>
+      <h2 class="h2 mb-6 text-center md:text-start">{{product.name}}</h2>
+      <p class="mb-6 opacity-50 text-center md:text-start">{{product.description}}</p>
       <p class="font-bold mb-8">{{product.price | currency}}</p>
       <div class="flex flex-row space-x-4">
         <button type="button" class="add bg-dark-grey pl-12 pr-4 py-3 flex flex-row rounded-sm font-bold">
@@ -20,13 +20,13 @@
     </div>
   </section>
 
-  <section class="mt-40 grid grid-cols-2 space-x-4">
-    <div>
-      <h3 class="mb-6 text-3xl uppercase font-semibold">Features</h3>
+  <section class="mt-40 lg:grid lg:grid-cols-2 lg:space-x-4">
+    <div class="mb-6 lg:mb-0">
+      <h3 class="h3 mb-6 ">Features</h3>
       <p class="opacity-50">{{product.features}}</p>
     </div>
-    <div class="flex flex-col pl-24">
-      <h3 class="mb-6 text-3xl uppercase font-semibold">In the box</h3>
+    <div class="mt-20 lg:mt-0 flex flex-col lg:pl-24">
+      <h3 class="mb-6 h3">In the box</h3>
       <ul *ngFor="let item of product.includes">
         <li class="flex mb-4">
           <p class="text-dark-orange font-bold">{{item.quantity}}x</p>
@@ -36,8 +36,8 @@
     </div>
   </section>
 
-  <section class="photo-cards-section mt-40 grid space-x-8">
-    <div class="flex flex-col justify-between">
+  <section class="photo-cards-section mt-40 flex flex-col sm:grid space-y-8 sm:space-y-0 sm:space-x-8">
+    <div class="space-y-8 lg:flex lg:flex-col lg:justify-between">
       <div>
         <img [src]="product.gallery.first.desktop" alt="" class="rounded h-full w-full">
       </div>
@@ -51,11 +51,11 @@
   </section>
 
   <section class="mt-40">
-    <h3 class="text-center mb-6 text-3xl uppercase font-semibold">You may also like</h3>
-    <div class="grid grid-cols-3 space-x-4">
-      <div *ngFor="let item of product.others">
-        <div>
-          <img [src]="item.image.desktop" alt="" class="w-full h-80">
+    <h3 class="h3 text-center mb-6">You may also like</h3>
+    <div class="flex flex-col space-y-8 sm:space-y-0 sm:grid sm:grid-cols-3 sm:space-x-4">
+      <div *ngFor="let item of product.others" class=" h-auto">
+        <div class="">
+          <img [src]="item.image.desktop" alt="" class="w-full h-full">
         </div>
         <div class="flex flex-col items-center">
           <h4 class="text-2xl uppercase font-semibold mt-6 mb-8">{{item.name}}</h4>

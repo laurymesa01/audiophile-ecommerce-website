@@ -16,11 +16,17 @@ export class LayoutComponent {
     "speakers",
     "earphones"
   ]
-  modal: boolean = false;
+  modal           : boolean = false;
+  modalCategories : boolean = false;
+
 
   constructor(private productService: ProductService){}
 
   openCart(){
     this.modal = !this.modal;
+  }
+
+  openCategories(){
+    this.modalCategories = !this.modalCategories;
   }
 }

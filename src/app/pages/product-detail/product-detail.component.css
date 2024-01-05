@@ -1,7 +1,7 @@
-.product-card{
-  padding-right: 30%;
+.main-section{
+  padding-left: 8%;
+  padding-right: 8%;
 }
-
 .product-card .new{
   letter-spacing: 0.4em;
 }
@@ -17,4 +17,10 @@
 
 .photo-cards-section{
   grid-template-columns: 40% 60%;
+}
+
+@media screen and (min-width: 1024px) {
+  .product-card{
+    padding-right: 30%;
+  }
 }

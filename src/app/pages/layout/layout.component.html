@@ -1,7 +1,10 @@
-<header class="px-32 bg-almost-black">
+<header class=" bg-almost-black">
   <nav class="py-5 h-20 text-white">
       <div class="flex flex-wrap justify-between items-center max-w-screen-xl">
-          <a href="" class="flex items-center">
+        <button class="lg:hidden" (click)="openCategories()">
+          <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z"/></g></svg>
+        </button>
+        <a href="" class="flex items-center">
               <img src="../../../assets/shared/desktop/logo.svg" class="mr-3 h-6 w-32" alt="Logo" />
           </a>
           <div class="flex items-center lg:order-2">
@@ -30,6 +33,8 @@
       </div>
   </nav>
 </header>
+
+<app-cards *ngIf="modalCategories" ></app-cards>
 
 <router-outlet></router-outlet>
 

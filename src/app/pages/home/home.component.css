@@ -4,11 +4,10 @@ section{
 }
 
 .header-section{
-  height: 60vh;
+  height: 100vh;
   background-image: url('../../../assets/home/mobile/image-header.jpg');
   background-position: center;
   background-size: cover;
-  /* background-repeat: no-repeat; */
 }
 
 .header-section .new{
@@ -20,18 +19,18 @@ h1{
 }
 
 .orange-section{
-  height: 60vh;
+  height: 65vh;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50% -170px;
+  background-position: 50% -160px;
   /* background-size: 73% 200%;
   background-position: -100px -100px; */
 }
 
 .orange-section img{
-  height: 200px;
-  width: 150px;
+  height: 150px;
+  width: 140px;
   /* height: 75vh;
   bottom: -10px; */
 }
@@ -67,22 +66,22 @@ h1{
   .header-section{
     height: 110vh;
     background-image: url('../../../assets/home/desktop/image-hero.jpg');
-
   }
 
   .orange-section{
+    height: 90vh;
     padding-left: 8%;
     padding-right: 8%;
     background-size: 73% 200%;
     background-position: -55% -100px;
   }
   .orange-section img{
-    height: 50vh;
-    width: 300px;
+    height: auto;
+    width: 390px;
     bottom: -12px;
   }
   .image-background{
-    height: 45vh;
+    height: 60vh;
     background-image: url('../../../assets/home/desktop/image-speaker-zx7.jpg');
   }
 

@@ -2,20 +2,21 @@
   <h2 *ngIf="category" class="text-white h2">{{category}}</h2>
 </section>
 
-<section class="px-32 py-40">
+<section class="product-card py-40">
   <section *ngFor="let product of products | reverse; let indice = index">
-    <div class="grid grid-cols-2 mb-24">
-      <div [ngStyle]="indice%2===0?{
-        'grid-column-start': 1,
-        'grid-row-start': 1,
-        'margin-right': '3.5rem'
-      }:{
-        'grid-column-start': 2,
-        'grid-row-start': 1,
-      }">
+    <div class="flex flex-col lg:grid lg:grid-cols-2 mb-24">
+      <div class="mb-8 lg:mb-0" [ngStyle]="indice%2===0?Style:Style2">
+        <!-- [ngStyle]="indice%2===0?{
+          'grid-column-start': 1,
+          'grid-row-start': 1,
+          'margin-right': '3.5rem'
+        }:{
+          'grid-column-start': 2,
+          'grid-row-start': 1,
+        }" -->
         <img [src]="product.categoryImage.desktop" alt="">
       </div>
-      <div class="flex flex-col justify-center items-start">
+      <div class="lg:flex lg:flex-col lg:justify-center">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>

@@ -1,6 +1,9 @@
-div{
-  padding-right: 35%;
-}
 .new{
   letter-spacing: 0.4em;
+}
+
+@media screen and (min-width: 1024px) {
+  div{
+    padding-right: 35%;
+  }
 }
