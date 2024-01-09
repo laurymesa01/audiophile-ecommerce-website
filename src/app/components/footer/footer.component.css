@@ -1,6 +1,11 @@
-.info{
-  width: 50%;
+footer{
+  padding-left: 8%;
+  padding-right: 8%;
 }
+
+/* .info{
+  width: 50%;
+} */
 
 .info p{
   line-height: 25px;

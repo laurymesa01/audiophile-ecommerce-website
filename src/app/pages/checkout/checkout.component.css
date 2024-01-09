@@ -1,5 +1,6 @@
-form{
-  width: 50vw;
+.main-section{
+  padding-right: 8%;
+  padding-left: 8%;
 }
 
 h3{
@@ -36,10 +37,21 @@ input, .input-radio{
 }
 
 .products-checkout{
-  width: 20vw;
-  height: 80vh;
+  /* width: 20vw; */
+  height: auto;
 }
 
 button{
   letter-spacing: 1px;
+}
+
+@media screen and (min-width: 1024px) {
+  form{
+    width: 180vw;
+  }
+
+  .products-checkout{
+    height: 60%;
+  }
+
 }

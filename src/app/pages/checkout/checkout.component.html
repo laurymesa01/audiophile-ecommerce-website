@@ -1,11 +1,11 @@
-<section class="px-32 py-16 bg-dark-grey">
+<section class="main-section pt-16 pb-32 bg-dark-grey">
   <button (click)="goBack()" class="btn-back">Go back</button>
-  <section class="mt-10 flex space-x-12">
-    <form class="bg-white rounded p-12 ">
+  <section class="mt-10 flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12">
+    <form class="bg-white rounded p-6 sm:p-12 w-full lg:grow-0">
       <h3 class="h3 mb-6">Checkout</h3>
       <div class="mb-12">
         <p class="subtitle mb-4">Billing details</p>
-        <div class="grid grid-cols-2 gap-x-6 gap-y-6">
+        <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
           <div class="flex flex-col">
             <label class="label" for="name">Name</label>
             <input type="text" name="name" id="name" class="input">
@@ -23,8 +23,8 @@
 
       <div class="mb-12">
         <p class="subtitle mb-4">Shipping info</p>
-        <div class="grid grid-cols-2 gap-x-6 gap-y-6">
-          <div class="col-span-2 flex flex-col">
+        <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
+          <div class="sm:col-span-2 flex flex-col">
             <label class="label" for="address">Address</label>
             <input type="text" name="address" class="input">
           </div>
@@ -45,8 +45,8 @@
 
       <div>
         <p class="subtitle mb-4">Payment details</p>
-        <div class="grid grid-cols-2 grid-rows-3 gap-x-6 gap-y-6">
-          <div class="row-span-2">
+        <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0 sm:grid-rows-3">
+          <div class="sm:row-span-2">
             <label class="label">Payment method</label>
           </div>
           <div class="input-radio input cursor-pointer">
@@ -70,14 +70,16 @@
 
     </form>
 
-    <div class="products-checkout bg-white rounded p-8">
+    <div class="products-checkout bg-white rounded p-6 sm:p-8 w-full lg:grow">
       <p class="font-bold uppercase text-lg text-black mb-4">Summary</p>
 
       <div class="py-4 flex justify-between items-center">
-        <img src="" alt="" class="h-16 w-16 rounded">
-        <div class="flex flex-col text-start">
-          <p class="text-base font-bold text-black uppercase">XX99 MK II</p>
-          <p class="text-sm opacity-50 font-bold leading-6 text-black">$ 2,999</p>
+        <div class="flex">
+          <img src="" alt="" class="h-16 w-16 rounded">
+          <div class="flex flex-col text-start ml-4">
+            <p class="text-base font-bold text-black uppercase">XX99 MK II</p>
+            <p class="text-sm opacity-50 font-bold leading-6 text-black">$ 2,999</p>
+          </div>
         </div>
         <p class="text-sm opacity-50 font-bold leading-6 text-black">1x</p>
       </div>
