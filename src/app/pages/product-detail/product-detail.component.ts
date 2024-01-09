@@ -1,10 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { distinctUntilChanged, switchMap, tap } from 'rxjs';
 import { ProductService } from '../../services/product.service';
 import { Products } from 'src/app/interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-product-detail',
@@ -54,10 +55,11 @@ export class ProductDetailComponent implements OnInit{
     others: []
   };
 
+
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
               private location: Location,
-              private cartService: CartService){}
+              private cartService: CartService,){}
 
   ngOnInit(): void {
     this.activatedRoute.params

@@ -3,7 +3,7 @@
 }
 
 .card img{
-  height: 150px;
+  height: auto;
   width: 45%;
 }
 .card p{
@@ -23,20 +23,13 @@
   opacity: 1;
 }
 
-.headphones-img{
+.headphones-img, .speakers-img, .earphones-img{
   top: -50px;
 }
 
-.speakers-img{
-  top: -50px;
-}
-
-.earphones-img{
-  top: -50px;
-}
 
 @media screen and (min-width: 1024px) {
   .card{
-    height: 25vh;
+    height: 30vh;
   }
 }
