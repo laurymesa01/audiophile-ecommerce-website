@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { Products } from 'src/app/interfaces/product.interface';
@@ -11,7 +11,9 @@ import { Products } from 'src/app/interfaces/product.interface';
 export class CartComponent implements OnInit{
 
   @Input() modal = false;
-  public products: Array<Products> = [];
+  @Output() cart = new EventEmitter<any>();
+
+  public products: Array<Products> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
   public totalPrice:number = 0;
   public totalQuantity:number = 0;
 
@@ -27,6 +29,7 @@ export class CartComponent implements OnInit{
         console.log('products',this.products);
         console.log('quantity',this.totalQuantity);
         console.log('price',this.totalPrice);
+        this.saveLocalStorage();
       }
     })
   }
@@ -37,8 +40,16 @@ export class CartComponent implements OnInit{
   }
 
   checkout(){
-    this.router.navigate(['checkout'])
-    this.modal = false
+    this.router.navigate(['checkout']);
+    this.modal = false;
+    this.cart.emit(this.products);
   }
 
+  saveLocalStorage(){
+    localStorage.setItem("cart", JSON.stringify(this.products));
+  }
+
+  increaseProduct(){}
+
+  decreaseProduct(){}
 }

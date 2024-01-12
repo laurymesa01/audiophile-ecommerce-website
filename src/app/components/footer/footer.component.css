@@ -3,9 +3,11 @@ footer{
   padding-right: 8%;
 }
 
-/* .info{
-  width: 50%;
-} */
+ul li a{
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: bold;
+}
 
 .info p{
   line-height: 25px;

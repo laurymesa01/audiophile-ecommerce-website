@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Products } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -20,10 +21,15 @@ export class LayoutComponent {
   modalCategories : boolean = false;
 
 
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService,
+              private router: Router){}
 
   openCart(){
     this.modal = !this.modal;
+  }
+
+  checkout(){
+    this.router.navigate(['checkout']);
   }
 
   openCategories(){
