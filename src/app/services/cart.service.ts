@@ -9,6 +9,7 @@ export class CartService {
 
   private myShopingCart: Products[] = [];
   private cart = new BehaviorSubject<Array<Products>>([]);
+  private cartToCheckout = new BehaviorSubject<Array<Products>>([]);
   public currentDataCart$ = this.cart.asObservable();
   total = 0;
 
@@ -62,6 +63,10 @@ export class CartService {
       (sum, item) => sum + item.price,
       0
     ));
+  }
+
+  senCartToCheckout(products: Products[]){
+    this.cartToCheckout.next(products);
   }
 
 

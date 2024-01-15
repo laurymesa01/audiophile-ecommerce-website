@@ -11,9 +11,9 @@ import { Products } from 'src/app/interfaces/product.interface';
 export class CartComponent implements OnInit{
 
   @Input() modal = false;
-  @Output() cart = new EventEmitter<any>();
 
   public products: Array<Products> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
+  quantity: number = 0;
   public totalPrice:number = 0;
   public totalQuantity:number = 0;
 
@@ -26,9 +26,6 @@ export class CartComponent implements OnInit{
         this.products = products;
         this.totalQuantity = products.length;
         this.totalPrice = products.reduce((sum, current) => sum + (current.price), 0);
-        console.log('products',this.products);
-        console.log('quantity',this.totalQuantity);
-        console.log('price',this.totalPrice);
         this.saveLocalStorage();
       }
     })
@@ -37,19 +34,29 @@ export class CartComponent implements OnInit{
   public remove(){
     this.cartService.removeElements();
     this.products = [];
+    localStorage.removeItem('cart');
   }
 
   checkout(){
     this.router.navigate(['checkout']);
     this.modal = false;
-    this.cart.emit(this.products);
+    this.cartService.senCartToCheckout(this.products);
   }
 
   saveLocalStorage(){
     localStorage.setItem("cart", JSON.stringify(this.products));
   }
 
-  increaseProduct(){}
+  increaseProduct(quantity: number){
+    // let product = this.products.find(product => product.id == id);
+    quantity ++;
+    this.quantity = quantity;
 
-  decreaseProduct(){}
+  }
+
+  decreaseProduct(quantity: number){
+    quantity --;
+    this.quantity = quantity;
+
+  }
 }

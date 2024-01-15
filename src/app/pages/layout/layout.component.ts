@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent {
+export class LayoutComponent{
 
   products: Products[] = [];
 
@@ -24,12 +24,9 @@ export class LayoutComponent {
   constructor(private productService: ProductService,
               private router: Router){}
 
+
   openCart(){
     this.modal = !this.modal;
-  }
-
-  checkout(){
-    this.router.navigate(['checkout']);
   }
 
   openCategories(){

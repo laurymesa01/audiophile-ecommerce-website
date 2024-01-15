@@ -15,10 +15,10 @@
                 <p class="text-base font-bold text-black uppercase">{{product.name}}</p>
                 <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.price | currency}}</p>
               </div>
-              <button class="text-black h-8 w-24 flex justify-between items-center px-4 bg-dark-grey rounded-sm font-bold">
-                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="decreaseProduct()">-</span>
-                1
-                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="increaseProduct()">+</span>
+              <button class="text-black h-8 w-24 flex justify-between items-center px-4 bg-dark-grey rounded-sm font-bold" [attr.quantity]="0">
+                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="decreaseProduct(quantity)">-</span>
+                {{quantity}}
+                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="increaseProduct(quantity)">+</span>
               </button>
             </div>
             <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Total</p>
