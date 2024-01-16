@@ -1,7 +1,7 @@
 <div *ngIf="modal" class="modal relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <!-- <div class="inset-0 absolute bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
 
-  <div class="fixed inset-0 z-10 overflow-y-auto">
+  <div class="fixed inset-0 z-10 overflow-y-auto" placement="right" closable>
     <div class="flex min-h-full items-center justify-center text-center">
       <div class="container px-4 py-4 relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8">
         <div class="bg-white pb-4 pt-5 dark:bg-very-dark-blue h-full">
@@ -9,19 +9,25 @@
               <p class="font-bold uppercase text-lg text-black">Cart({{totalQuantity}})</p>
               <button class="opacity-50 text-black hover:text-dark-orange" (click)="remove()">Remove all</button>
             </div>
-            <div class="py-4 flex justify-between items-center" *ngFor="let product of products">
-              <img [src]="product.image.desktop" class="h-16 w-16 rounded" alt="">
-              <div class="flex flex-col text-start">
-                <p class="text-base font-bold text-black uppercase">{{product.name}}</p>
-                <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.price | currency}}</p>
+            <div class="py-4 flex justify-between items-center" *ngFor="let product of cart">
+              <div class="flex">
+                <img [src]="product.product.image.desktop" class="h-16 w-16 rounded" alt="">
+                <div class="flex flex-col text-start ml-2">
+                  <p class="text-base font-bold text-black uppercase">{{product.product.name}}</p>
+                  <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.product.price | currency}}</p>
+                </div>
               </div>
               <button class="text-black h-8 w-24 flex justify-between items-center px-4 bg-dark-grey rounded-sm font-bold" [attr.quantity]="0">
-                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="decreaseProduct(quantity)">-</span>
-                {{quantity}}
-                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="increaseProduct(quantity)">+</span>
+                <span class="opacity-40 text-sm hover:text-dark-orange " (click)="decreaseProduct(product.product)">-</span>
+                {{product.quantity}}
+                <span class="opacity-40 text-sm hover:text-dark-orange" (click)="increaseProduct(product.product)">+</span>
               </button>
             </div>
-            <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Total</p>
+
+            <div class="flex justify-between items-center">
+              <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Total</p>
+              <p class="text-base text-black opacity-50 uppercase leading-6 text-start">{{totalPrice}}</p>
+            </div>
         </div>
         <div class="flex w-full">
           <button type="submit"
@@ -34,4 +40,6 @@
     </div>
   </div>
 </div>
+
+
 

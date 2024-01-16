@@ -4,6 +4,7 @@ import { CartComponent } from 'src/app/components/cart/cart.component';
 import { Products } from 'src/app/interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
+import { Cart } from 'src/app/interfaces/cart.interface';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class CheckoutComponent implements OnInit{
 
 
-  products: Products[] = [];
+  cart: Cart[] = [];
   billModal: boolean = false;
 
 
@@ -23,11 +24,7 @@ export class CheckoutComponent implements OnInit{
               private router: Router){}
 
   ngOnInit(){
-    // this.cartService.currentDataCart$.subscribe(products => this.products = products)
-    // console.log(this.products);
-
-    this.products = JSON.parse(localStorage.getItem('cart') || '[]') || [];
-    console.log(this.products);
+    this.cart = JSON.parse(localStorage.getItem('cart') || '[]') || [];
 
   }
 

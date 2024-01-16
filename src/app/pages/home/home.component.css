@@ -4,7 +4,7 @@ section{
 }
 
 .header-section{
-  height: 100vh;
+  height: auto;
   background-image: url('../../../assets/home/mobile/image-header.jpg');
   background-position: center;
   background-size: cover;
@@ -24,23 +24,12 @@ h1{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% -160px;
-  /* background-size: 73% 200%;
-  background-position: -100px -100px; */
 }
 
 .orange-section img{
   height: 150px;
   width: 140px;
-  /* height: 75vh;
-  bottom: -10px; */
 }
-
-/* .image-background{
-  height: 60vh;
-  background-image: url('../../../assets/home/desktop/image-speaker-zx7.jpg');
-  background-position: center;
-  background-size: cover;
-} */
 
 .image-background{
   height: 35vh;
@@ -51,7 +40,6 @@ h1{
 }
 
 @media screen and (min-width: 640px) {
-
   .header-section{
     background-image: url('../../../assets/home/tablet/image-header.jpg');
   }
@@ -64,7 +52,6 @@ h1{
 
 @media screen and (min-width: 1024px) {
   .header-section{
-    height: 110vh;
     background-image: url('../../../assets/home/desktop/image-hero.jpg');
   }
 

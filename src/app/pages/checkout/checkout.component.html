@@ -70,15 +70,15 @@
 
     </form>
 
-    <div class="products-checkout bg-white rounded p-6 sm:p-8 w-full lg:grow">
+    <div class="products-checkout bg-white rounded p-6 sm:p-8 w-full lg:grow" *ngFor="let product of cart">
       <p class="font-bold uppercase text-lg text-black mb-4">Summary</p>
 
-      <div class="py-4 flex justify-between items-center" *ngFor="let product of products">
+      <div class="py-4 flex justify-between items-center" >
         <div class="flex">
-          <img [src]="product.image.mobile" alt="" class="h-16 w-16 rounded">
+          <img [src]="product.product.image.mobile" alt="" class="h-16 w-16 rounded">
           <div class="flex flex-col text-start ml-4">
-            <p class="text-base font-bold text-black uppercase">{{product.name}}</p>
-            <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.price | currency}}</p>
+            <p class="text-base font-bold text-black uppercase">{{product.product.name}}</p>
+            <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.product.price | currency}}</p>
           </div>
         </div>
         <p class="text-sm opacity-50 font-bold leading-6 text-black">1x</p>
@@ -86,7 +86,7 @@
 
       <div class="flex mb-2 justify-between items-center">
         <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Total</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">$ 5,396</p>
+        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{product.product.price}}</p>
       </div>
       <div class="flex mb-2 justify-between items-center">
         <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Shipping</p>

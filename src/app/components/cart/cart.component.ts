@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { Products } from 'src/app/interfaces/product.interface';
+import { Cart } from 'src/app/interfaces/cart.interface';
 
 @Component({
   selector: 'app-cart',
@@ -12,10 +13,9 @@ export class CartComponent implements OnInit{
 
   @Input() modal = false;
 
-  public products: Array<Products> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
-  quantity: number = 0;
-  public totalPrice:number = 0;
-  public totalQuantity:number = 0;
+  public cart         : Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
+  public totalPrice   : number = Number(localStorage.getItem('totalPrice'));
+  public totalQuantity: number = Number(localStorage.getItem('totalQuantity'));
 
   constructor(private router: Router,
               private cartService: CartService){}
@@ -23,9 +23,9 @@ export class CartComponent implements OnInit{
   ngOnInit(){
     this.cartService.currentDataCart$.subscribe(products => {
       if(products && products.length > 0){
-        this.products = products;
+        this.cart = products;
         this.totalQuantity = products.length;
-        this.totalPrice = products.reduce((sum, current) => sum + (current.price), 0);
+        this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
         this.saveLocalStorage();
       }
     })
@@ -33,30 +33,47 @@ export class CartComponent implements OnInit{
 
   public remove(){
     this.cartService.removeElements();
-    this.products = [];
+    this.cart = [];
+    this.totalQuantity = 0;
+    this.totalPrice = 0;
     localStorage.removeItem('cart');
   }
 
   checkout(){
-    this.router.navigate(['checkout']);
+    if (this.cart.length > 0) {
+      this.router.navigate(['checkout']);
+    }
     this.modal = false;
-    this.cartService.senCartToCheckout(this.products);
   }
 
   saveLocalStorage(){
-    localStorage.setItem("cart", JSON.stringify(this.products));
+    localStorage.setItem("cart", JSON.stringify(this.cart));
+    localStorage.setItem("totalPrice", this.totalPrice.toString());
+    localStorage.setItem("totalQuantity", this.totalQuantity.toString());
   }
 
-  increaseProduct(quantity: number){
-    // let product = this.products.find(product => product.id == id);
-    quantity ++;
-    this.quantity = quantity;
-
+  increaseProduct(product: Products){
+    let index = this.cart.findIndex(cart => cart.product.id === product.id);
+    if (this.cart[index] != undefined) {
+      this.cart[index].quantity ++;
+      this.totalQuantity ++;
+      this.totalPrice += this.cart[index].product.price;
+    }
+    this.saveLocalStorage();
   }
 
-  decreaseProduct(quantity: number){
-    quantity --;
-    this.quantity = quantity;
-
+  decreaseProduct(product: Products){
+    let index = this.cart.findIndex(cart => cart.product.id === product.id);
+    if (this.cart[index] != undefined && this.cart.length > 0) {
+      // this.totalPrice -= this.cart[index].product.price;
+      // this.totalQuantity --;
+      if(this.cart[index].quantity == 0){
+        this.cart = this.cart.filter(cart => cart.product.id == index);
+      }
+      else{
+        this.cart[index].quantity --;
+      }
+    }
+    this.saveLocalStorage();
   }
 }

@@ -1,42 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import { Products } from '../interfaces/product.interface';
+import { Cart } from '../interfaces/cart.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private myShopingCart: Products[] = [];
-  private cart = new BehaviorSubject<Array<Products>>([]);
-  private cartToCheckout = new BehaviorSubject<Array<Products>>([]);
+  private myShopingCart: Cart[] = [];
+  private cart = new BehaviorSubject<Array<Cart>>([]);
   public currentDataCart$ = this.cart.asObservable();
   total = 0;
 
   constructor() { }
 
-  // public changeCart(product: Products){
-  //   this.myShopingCart = this.cart.getValue();
-  //   if(this.myShopingCart && this.myShopingCart.length > 0){
-  //     let objIndex = this.myShopingCart.findIndex((obj => obj.id == product.id));
-  //     listCart[objIndex].quantity = 0;
-  //     Object.defineProperty(this.myShopingCart[objIndex], "quantity", {
-  //       value: 0
-  //     });
-  //     if(objIndex != -1){
-  //       listCart[objIndex].quantity += 1;
-  //     }
-  //       listCart.push(product);
-  //   }
-  //   else{
-  //     listCart = [];
-  //     listCart.push(product,);
-  //   }
-  //   this.cart.next(listCart);
-  // }
-
   public changeCart(product: Products){
-    this.myShopingCart.push(product);
+    let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
+    if(index === -1){
+      const newProduct: Cart = {
+        product: product,
+        quantity: 1
+      }
+      this.myShopingCart.push(newProduct);
+    }
+    else{
+      this.myShopingCart[index].quantity ++;
+    }
     this.cart.next(this.myShopingCart);
   }
 
@@ -51,7 +41,7 @@ export class CartService {
 
   public removeElementCart(product: Products){
     let listCart = this.cart.getValue();
-    let objIndex = listCart.findIndex((obj => obj.id == product.id));
+    let objIndex = listCart.findIndex((obj => obj.product.id == product.id));
     if(objIndex != -1){
       listCart.splice(objIndex,1);
     }
@@ -60,14 +50,8 @@ export class CartService {
 
   getTotal() {
     return (this.total = this.myShopingCart.reduce(
-      (sum, item) => sum + item.price,
+      (sum, item) => sum + item.product.price,
       0
     ));
   }
-
-  senCartToCheckout(products: Products[]){
-    this.cartToCheckout.next(products);
-  }
-
-
 }

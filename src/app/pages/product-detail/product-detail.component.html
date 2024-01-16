@@ -41,11 +41,11 @@
     </div>
   </section>
 
-  <section class="photo-cards-section mt-40 flex flex-col sm:grid space-y-8 sm:space-y-0 sm:space-x-8">
+  <section class="photo-cards-section mt-40 flex flex-col sm:grid space-y-8 sm:space-y-0 sm:space-x-4">
     <div class="space-y-8 lg:flex lg:flex-col lg:justify-between">
       <div>
         <picture>
-          <source [srcset]="product.gallery.first.desktop" media="(min-width: 1024px)" class="rounded">
+          <source [srcset]="product.gallery.first.desktop" media="(min-width: 1024px)" class="rounded w-full">
           <source [srcset]="product.gallery.first.tablet" media="(min-width: 640px)" class="rounded h-full">
           <img [src]="product.gallery.first.mobile" alt="" class="rounded mb-6">
         </picture>
@@ -57,16 +57,14 @@
           <source [srcset]="product.gallery.second.tablet" media="(min-width: 640px)" class="rounded h-full">
           <img [src]="product.gallery.second.mobile" alt="" class="rounded h-full">
         </picture>
-        <!-- <img [src]="product.gallery.second.desktop" alt="" class="rounded h-full w-full"> -->
       </div>
     </div>
     <div>
       <picture>
-        <source [srcset]="product.gallery.third.desktop" media="(min-width: 1024px)" class="rounded mb-6">
+        <source [srcset]="product.gallery.third.desktop" media="(min-width: 1024px)" class="rounded mb-6 w-full">
         <source [srcset]="product.gallery.third.tablet" media="(min-width: 640px)" class="rounded mb-6">
         <img [src]="product.gallery.third.mobile" alt="" class="rounded h-full">
       </picture>
-      <!-- <img [src]="product.gallery.third.desktop" alt="" class="rounded h-full w-full"> -->
     </div>
   </section>
 
