@@ -21,7 +21,7 @@
           <div class="flex flex-col">
             <div class="flex flex-row justify-between">
               <label class="label" for="email">Email Address</label>
-              <span class="label text-red-invalid" *ngIf="detailsFormGroup.get('name').hasError('required') && user.get('name').touched">Wrong format</span>
+              <span class="label text-red-invalid">Wrong format</span>
             </div>
             <input  type="email"
                     name="email"
