@@ -42,7 +42,7 @@ body{
   @apply bg-dark-grey pb-4 flex flex-col justify-end items-center rounded relative cursor-pointer
 }
 .input{
-  @apply rounded-md text-black text-sm opacity-60 focus:outline-none border focus:border-dark-orange hover:border-dark-orange;
+  @apply rounded-md text-black text-sm opacity-60 focus:outline-none border focus:border-dark-orange hover:border-dark-orange ;
 }
 
 .btn{

@@ -1,22 +1,44 @@
 <section class="main-section pt-16 pb-32 bg-dark-grey">
   <button (click)="goBack()" class="btn-back">Go back</button>
   <section class="mt-10 flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12">
-    <form class="bg-white rounded p-6 sm:p-12 w-full lg:grow-0">
+    <form class="bg-white rounded p-6 sm:p-12 w-full lg:grow-0"
+          [formGroup]="detailsFormGroup"
+          novalidate
+          (ngSubmit)="pay()">
       <h3 class="h3 mb-6">Checkout</h3>
       <div class="mb-12">
         <p class="subtitle mb-4">Billing details</p>
         <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
           <div class="flex flex-col">
             <label class="label" for="name">Name</label>
-            <input type="text" name="name" id="name" class="input">
+            <input  type="text"
+                    name="name"
+                    id="name"
+                    class="input "
+                    formControlName="name"
+                    required>
           </div>
           <div class="flex flex-col">
-            <label class="label" for="email">Email Address</label>
-            <input type="email" name="email" id="email" class="input">
+            <div class="flex flex-row justify-between">
+              <label class="label" for="email">Email Address</label>
+              <span class="label text-red-invalid" *ngIf="detailsFormGroup.get('name').hasError('required') && user.get('name').touched">Wrong format</span>
+            </div>
+            <input  type="email"
+                    name="email"
+                    id="email"
+                    class="input"
+                    formControlName="email"
+                    required
+                    [ngClass]="{'border-red-500 text-red-500': detailsFormGroup.get('email')?.invalid}">
           </div>
           <div class="flex flex-col">
             <label class="label" for="phone">Phone Number</label>
-            <input type="tel" name="phone" id="phone" class="input">
+            <input  type="tel"
+                    name="phone"
+                    id="phone"
+                    class="input"
+                    formControlName="phone"
+                    required>
           </div>
         </div>
       </div>
@@ -26,19 +48,32 @@
         <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
           <div class="sm:col-span-2 flex flex-col">
             <label class="label" for="address">Address</label>
-            <input type="text" name="address" class="input">
+            <input  type="text"
+                    name="address"
+                    class="input"
+                    formControlName="address"
+                    required>
           </div>
           <div class=" flex flex-col">
             <label class="label">ZIP Code</label>
-            <input type="text" class="input">
+            <input  type="text"
+                    class="input"
+                    formControlName="zip"
+                    required="">
           </div>
           <div class=" flex flex-col">
             <label class="label">City</label>
-            <input type="text" class="input">
+            <input  type="text"
+                    class="input"
+                    formControlName="city"
+                    required>
           </div>
           <div class=" flex flex-col">
             <label class="label">Country</label>
-            <input type="text" class="input">
+            <input  type="text"
+                    class="input"
+                    formControlName="country"
+                    required>
           </div>
         </div>
       </div>
@@ -50,7 +85,7 @@
             <label class="label">Payment method</label>
           </div>
           <div class="input-radio input cursor-pointer">
-            <input type="checkbox" class="rounded-full cursor-pointer appearance-none checked:bg-dark-orange ">
+            <input type="checkbox" checked class="rounded-full cursor-pointer appearance-none checked:bg-dark-orange ">
             <label for="" class="label ml-4">e-Money</label>
           </div>
           <div class="input-radio input cursor-pointer">
@@ -81,30 +116,31 @@
             <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.product.price | currency}}</p>
           </div>
         </div>
-        <p class="text-sm opacity-50 font-bold leading-6 text-black">1x</p>
+        <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.quantity}}x</p>
       </div>
 
       <div class="flex mb-2 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Total</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{product.product.price}}</p>
+        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Total</p>
+        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{total | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
       <div class="flex mb-2 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Shipping</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">$ 50</p>
+        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Shipping</p>
+        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{shipping | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
-      <div class="flex mb-4 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Vat(included)</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">$ 1079</p>
+      <div class="flex mb-6 justify-between items-center">
+        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Vat(included)</p>
+        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{vat | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
       <div class="flex justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start">Grand total</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start"></p>
+        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Grand total</p>
+        <p class="text-base font-bold uppercase leading-6 text-start text-dark-orange">{{grandTotal | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
 
       <div class="flex w-full">
         <button type="submit"
                 class="h-10 w-full mt-8 text-white bg-dark-orange hover:bg-light-orange font-bold text-sm uppercase"
-                (click)="pay()">
+                (click)="pay()"
+                [disabled]="detailsFormGroup.invalid">
             Continue & pay
         </button>
       </div>

@@ -32,9 +32,9 @@ input, .input-radio{
   border: 1px solid #D87D4A;
 }
 
-.input-radio input{
+/* .input-radio input{
   appearance: none;
-}
+} */
 
 .products-checkout{
   /* width: 20vw; */
