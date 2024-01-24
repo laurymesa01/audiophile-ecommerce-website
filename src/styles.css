@@ -5,7 +5,7 @@
 
 body{
   width: 100%;
-  min-width:320px;
+  min-width: 320px;
 }
 .h1{
   @apply text-4xl leading-10 md:text-6xl md:leading-none font-bold uppercase;
@@ -39,18 +39,23 @@ body{
 }
 
 .div-card{
-  @apply bg-dark-grey pb-4 flex flex-col justify-end items-center rounded relative cursor-pointer
+  @apply bg-dark-grey pb-4 flex flex-col justify-end items-center rounded relative cursor-pointer;
 }
+
 .input{
-  @apply rounded-md text-black text-sm opacity-60 focus:outline-none border focus:border-dark-orange hover:border-dark-orange ;
+  @apply rounded-md text-black text-sm border-input-border border-opacity-40 focus:outline-none border focus:border-dark-orange focus:opacity-100 hover:border-dark-orange hover:opacity-100 active:border-dark-orange;
+}
+
+.checkbox{
+  @apply appearance-none rounded-full cursor-pointer border border-input-border;
 }
 
 .btn{
-  @apply py-3 w-32 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider
+  @apply py-3 w-32 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider;
 }
 
 .btn-orange{
-  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white;
+  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white active:bg-light-orange;
 }
 
 .btn-border{

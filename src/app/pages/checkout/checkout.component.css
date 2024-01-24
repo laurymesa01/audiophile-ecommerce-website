@@ -6,7 +6,8 @@
 h3{
   letter-spacing: 1.14px;
 }
-p{
+
+.subtitle{
   letter-spacing: 0.93px;
 }
 
@@ -15,7 +16,7 @@ label{
 }
 
 input, .input-radio{
-  border: 1px solid #CFCFCF;
+  /* border: 1px solid #CFCFCF; */
   padding: 8px;
 }
 
@@ -24,20 +25,18 @@ input, .input-radio{
 }
 
 .input-radio:focus{
-    border: 1px solid #D87D4A;
-    /* outline: none; */
+  border: 1px solid #D87D4A;
 }
 
 .input-radio:hover{
   border: 1px solid #D87D4A;
 }
 
-/* .input-radio input{
-  appearance: none;
-} */
+.checkbox:checked{
+  background: radial-gradient(circle at center, #D87D4A 40%, #ffff 45%);
+}
 
 .products-checkout{
-  /* width: 20vw; */
   height: auto;
 }
 
