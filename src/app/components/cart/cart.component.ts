@@ -53,27 +53,22 @@ export class CartComponent implements OnInit{
   }
 
   increaseProduct(product: Products){
-    let index = this.cart.findIndex(cart => cart.product.id === product.id);
-    if (this.cart[index] != undefined) {
-      this.cart[index].quantity ++;
+    this.cartService.increaseProduct(product);
+    this.cartService.currentDataCart$.subscribe(cart => {
+      this.cart = cart;
       this.totalQuantity ++;
-      this.totalPrice += this.cart[index].product.price;
-    }
-    this.saveLocalStorage();
+      this.totalPrice += product.price;
+      this.saveLocalStorage();
+    })
   }
 
   decreaseProduct(product: Products){
-    let index = this.cart.findIndex(cart => cart.product.id === product.id);
-    if (this.cart[index] != undefined && this.cart.length > 0) {
-      // this.totalPrice -= this.cart[index].product.price;
-      // this.totalQuantity --;
-      if(this.cart[index].quantity == 0){
-        this.cart = this.cart.filter(cart => cart.product.id == index);
-      }
-      else{
-        this.cart[index].quantity --;
-      }
-    }
-    this.saveLocalStorage();
+    this.cartService.decreaseProduct(product);
+    this.cartService.currentDataCart$.subscribe(cart => {
+      this.cart = cart;
+      this.totalQuantity --;
+      this.totalPrice -= product.price;
+      this.saveLocalStorage();
+    })
   }
 }

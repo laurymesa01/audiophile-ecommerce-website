@@ -11,7 +11,6 @@ export class CartService {
   private myShopingCart: Cart[] = [];
   private cart = new BehaviorSubject<Array<Cart>>([]);
   public currentDataCart$ = this.cart.asObservable();
-  total = 0;
 
   constructor() { }
 
@@ -39,19 +38,35 @@ export class CartService {
     this.cart.next(this.myShopingCart);
   }
 
-  public removeElementCart(product: Products){
-    let listCart = this.cart.getValue();
-    let objIndex = listCart.findIndex((obj => obj.product.id == product.id));
+  public removeElementCart(objIndex: number){
+    // let listCart = this.cart.getValue();
+    // let objIndex = listCart.findIndex((obj => obj.product.id == product.id));
     if(objIndex != -1){
-      listCart.splice(objIndex,1);
+      this.myShopingCart.splice(objIndex,1);
     }
-    this.cart.next(listCart);
+    this.cart.next(this.myShopingCart);
   }
 
-  getTotal() {
-    return (this.total = this.myShopingCart.reduce(
-      (sum, item) => sum + item.product.price,
-      0
-    ));
+  increaseProduct(product: Products){
+    let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
+    if(index != -1){
+      this.myShopingCart[index].quantity ++;
+    }
+    this.cart.next(this.myShopingCart);
+
   }
+
+  decreaseProduct(product: Products){
+    let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
+    if(index != -1){
+      if(this.myShopingCart[index].quantity === 1){
+        this.removeElementCart(index);
+      }
+      else{
+        this.myShopingCart[index].quantity --;
+      }
+    }
+    this.cart.next(this.myShopingCart);
+  }
+
 }
