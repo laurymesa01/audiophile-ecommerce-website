@@ -8,7 +8,7 @@ import { Cart } from '../interfaces/cart.interface';
 })
 export class CartService {
 
-  private myShopingCart: Cart[] = [];
+  private myShopingCart: Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
   private cart = new BehaviorSubject<Array<Cart>>([]);
   public currentDataCart$ = this.cart.asObservable();
 

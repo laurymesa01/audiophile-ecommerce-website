@@ -19,7 +19,7 @@ h1{
 }
 
 .orange-section{
-  height: 65vh;
+  height: auto;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -56,7 +56,7 @@ h1{
   }
 
   .orange-section{
-    height: 90vh;
+    height: 80vh;
     padding-left: 8%;
     padding-right: 8%;
     background-size: 73% 200%;
@@ -64,7 +64,7 @@ h1{
   }
   .orange-section img{
     height: auto;
-    width: 390px;
+    width: auto;
     bottom: -12px;
   }
   .image-background{

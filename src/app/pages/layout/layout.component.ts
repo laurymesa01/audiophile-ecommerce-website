@@ -8,7 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent{
+export class LayoutComponent implements OnInit{
 
   products: Products[] = [];
 
@@ -24,6 +24,23 @@ export class LayoutComponent{
   constructor(private productService: ProductService,
               private router: Router){}
 
+  ngOnInit(){
+    this.Style;
+    console.log(this.router.url);
+
+  }
+
+  public get Style(){
+    let style = {};
+    if (this.router.url === '/') {
+      style = {
+        'background-color': 'transparent',
+        'position': 'absolute',
+        'width': '100%'
+      }
+    }
+    return style;
+  }
 
   openCart(){
     this.modal = !this.modal;

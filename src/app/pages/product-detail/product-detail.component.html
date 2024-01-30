@@ -16,7 +16,7 @@
       <p class="mb-6 opacity-50 text-center md:text-start">{{product.description}}</p>
       <p class="font-bold mb-8">{{product.price | currency:'USD' :'symbol': '1.0-0'}}</p>
       <div class="flex flex-row space-x-4">
-        <button type="button" class="add btn bg-dark-grey pl-12 pr-4 flex flex-row">
+        <button type="button" class="add btn bg-dark-grey pl-12 pr-4 flex flex-row" (click)="increaseProduct(product)">
           1
           <span class="ml-10 opacity-40 text-sm">+</span>
         </button>

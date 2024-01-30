@@ -77,4 +77,8 @@ export class ProductDetailComponent implements OnInit{
     this.cartService.changeCart(product);
   }
 
+  increaseProduct(product: Products){
+    this.cartService.increaseProduct(product);
+  }
+
 }

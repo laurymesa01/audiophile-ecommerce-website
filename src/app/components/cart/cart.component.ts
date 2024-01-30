@@ -24,7 +24,7 @@ export class CartComponent implements OnInit{
     this.cartService.currentDataCart$.subscribe(products => {
       if(products && products.length > 0){
         this.cart = products;
-        this.totalQuantity = products.length;
+        this.totalQuantity = products.reduce((sum, current) => sum + (current.quantity), 0);
         this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
         this.saveLocalStorage();
       }
@@ -37,6 +37,10 @@ export class CartComponent implements OnInit{
     this.totalQuantity = 0;
     this.totalPrice = 0;
     localStorage.removeItem('cart');
+    localStorage.removeItem('totalPrice');
+    localStorage.removeItem('totalQuantity');
+
+
   }
 
   checkout(){

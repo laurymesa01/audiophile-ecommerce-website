@@ -1,13 +1,13 @@
-<div *ngIf="modal" class="modal relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div *ngIf="modal" class="modal absolute" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <!-- <div class="inset-0 absolute bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
 
   <div class="fixed inset-0 z-10 overflow-y-auto" placement="right" closable>
     <div class="flex min-h-full items-center justify-center text-center">
-      <div class="container px-4 py-4 relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8">
+      <div class="container px-4 py-4 absolute transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8">
         <div class="bg-white pb-4 pt-5 dark:bg-very-dark-blue h-full">
             <div class="flex flex-row justify-between h-7">
               <p class="font-bold uppercase text-lg text-black">Cart({{totalQuantity}})</p>
-              <button class="opacity-50 text-black hover:text-dark-orange" (click)="remove()">Remove all</button>
+              <button class="opacity-50 text-black hover:text-dark-orange hover:opacity-100" (click)="remove()">Remove all</button>
             </div>
             <div class="py-4 flex justify-between items-center" *ngFor="let product of cart">
               <div class="flex">
@@ -31,7 +31,7 @@
         </div>
         <div class="flex w-full">
           <button type="submit"
-                  class="h-10 w-full my-4 mx-4 text-white bg-dark-orange hover:bg-light-orange font-bold text-sm"
+                  class="h-10 w-full text-white bg-dark-orange hover:bg-light-orange font-bold text-sm"
                   (click)="checkout()">
               Checkout
           </button>
