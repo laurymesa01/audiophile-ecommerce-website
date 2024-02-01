@@ -15,7 +15,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class CheckoutComponent implements OnInit{
 
-  @Output() parametros = new EventEmitter<any>();
+  @Output() sendCart = new EventEmitter<Cart[]>();
+  @Output() sendGrandTotal = new EventEmitter<number>();
+
 
   cart: Cart[] = [];
   billModal: boolean = false;
@@ -49,7 +51,8 @@ export class CheckoutComponent implements OnInit{
 
   pay(){
     if(this.detailsFormGroup.valid){
-      this.parametros.emit(this.parametros);
+      // this.sendCart.emit(this.cart);
+      // this.sendGrandTotal.emit(this.grandTotal);
       this.billModal = !this.billModal;
     }
   }

@@ -4,7 +4,7 @@ section{
 }
 
 .header-section{
-  height: auto;
+  height: 95vh;
   background-image: url('../../../assets/home/mobile/image-header.jpg');
   background-position: center;
   background-size: cover;
@@ -42,6 +42,7 @@ h1{
 @media screen and (min-width: 640px) {
   .header-section{
     background-image: url('../../../assets/home/tablet/image-header.jpg');
+    height: 120vh;
   }
 
   .image-background{
@@ -52,6 +53,7 @@ h1{
 
 @media screen and (min-width: 1024px) {
   .header-section{
+    height: auto;
     background-image: url('../../../assets/home/desktop/image-hero.jpg');
   }
 
