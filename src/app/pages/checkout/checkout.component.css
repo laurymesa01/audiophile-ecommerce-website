@@ -40,6 +40,11 @@ input, .input-radio{
   height: auto;
 }
 
+/* .ng-invalid.ng-touched input{
+  border: 1px solid #CD2C2C;
+} */
+
+
 button{
   letter-spacing: 1px;
 }

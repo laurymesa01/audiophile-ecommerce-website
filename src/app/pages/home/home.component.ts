@@ -9,6 +9,7 @@ import { Products } from 'src/app/interfaces/product.interface';
 })
 export class HomeComponent{
 
+  getProductByName(){}
 
 
 }

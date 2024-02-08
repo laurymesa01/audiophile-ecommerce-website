@@ -16,17 +16,19 @@
                     id="name"
                     class="input "
                     formControlName="name"
-                    required>
+                    required
+                    autofocus
+                    (blur)="detailsFormGroup.get('name')!.markAsTouched()">
           </div>
           <div class="flex flex-col">
             <div class="flex flex-row justify-between">
-              <label class="label" for="email">Email Address</label>
-              <span class="label text-red-invalid peer-invalid:visible">Wrong format</span>
+              <label class="label invalid:text-red-invalid" for="email">Email Address</label>
+              <span *ngIf="this.detailsFormGroup.get('email')?.errors?.['email']" class="label text-red-invalid peer-invalid:visible">Wrong format</span>
             </div>
             <input  type="email"
                     name="email"
                     id="email"
-                    class="input peer-invalid:border-ired-invalid"
+                    class="input invalid:border-red-invalid"
                     formControlName="email"
                     required>
           </div>

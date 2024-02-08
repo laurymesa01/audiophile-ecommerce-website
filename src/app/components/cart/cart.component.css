@@ -1,11 +1,16 @@
 .container{
-  /* margin-left: 8%;
-  margin-right: 8%; */
-  right: 8%;
-  top: 12%;
+  margin-left: 8%;
+  margin-right: 8%;
   width: auto;
 }
 
 h6{
   letter-spacing: 1.29px;
+}
+
+@media screen and (min-width: 640px) {
+  .container{
+    right: 2%;
+    top: 12%;
+  }
 }

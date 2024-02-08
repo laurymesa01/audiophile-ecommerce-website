@@ -17,7 +17,7 @@
                   <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.product.price | currency:'USD' :'symbol': '1.0-0'}}</p>
                 </div>
               </div>
-              <button class="text-black h-8 w-24 flex justify-between items-center px-4 bg-dark-grey rounded-sm font-bold" >
+              <button class="btn-quantity h-8 w-24" >
                 <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="decreaseProduct(product.product)">-</span>
                 {{product.quantity}}
                 <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="increaseProduct(product.product)">+</span>

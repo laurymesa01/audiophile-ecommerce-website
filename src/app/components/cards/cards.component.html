@@ -1,5 +1,5 @@
 <section class="flex flex-col sm:grid sm:grid-cols-3  sm:gap-x-4">
-  <div class="card div-card mb-20 md:mb-0" *ngFor="let category of categories">
+  <div class="card div-card mb-20 md:mb-0" *ngFor="let category of categories" [routerLink]="['', category.category]">
     <img [src]="category.imgCategory" alt="" class="headphones-img absolute">
     <h6 class="h6 mb-4">{{category.category}}</h6>
     <div class="flex items-center">

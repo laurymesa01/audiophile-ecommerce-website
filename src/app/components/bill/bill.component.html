@@ -19,11 +19,11 @@
               <h3 class="h3 text-start mt-4 mb-6">Thank you for your order</h3>
               <p class="opacity-50 font-medium text-start">You will receive an email confirmation shortly.</p>
             </div>
-            <div class="my-4">
-              <div class="bg-dark-grey px-6 py-6 rounded-t-md">
+            <div class="my-4 flex flex-col md:flex-row">
+              <div class="bg-dark-grey px-4 sm:px-6 py-4 sm:py-6 rounded-t-md md:rounded-l-md">
                 <div class="product flex justify-between pb-4 items-center">
                   <div class="flex items-center">
-                    <img [src]="product.product.image.desktop" alt="" class="h-16 w-16 rounded">
+                    <img [src]="product.product.image.desktop" alt="" class="h-12 w-12 rounded">
                     <div class="flex flex-col ml-2 items-start">
                       <p class="text-base font-bold text-black uppercase text-start">{{product.product.name}}</p>
                       <p class="text-sm opacity-50 font-bold leading-6 text-black mt-2">{{product.product.price |currency}}</p>
@@ -31,9 +31,9 @@
                   </div>
                   <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.quantity}}x</p>
                 </div>
-                <p  class="mt-4 ext-sm opacity-50 font-bold leading-6 text-black">and {{items}} other item(s)</p>
+                <p  class="mt-4 text-sm opacity-50 font-bold leading-6 text-black">and {{items}} other item(s)</p>
               </div>
-              <div class="px-6 bg-black py-6 rounded-b-md">
+              <div class="px-6 bg-black py-6 rounded-b-md md:rounded-r-md">
                 <p class="text-base text-white opacity-50 uppercase leading-6 text-start font-medium">Grand total</p>
                 <p class="text-white font-bold text-lg text-start mt-4">{{grandTotal | currency}}</p>
               </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="flex w-full">
           <button type="submit"
-                  class="h-14 w-full my-4  text-white bg-dark-orange hover:bg-light-orange font-bold text-sm"
+                  class="h-12 w-full my-4  text-white bg-dark-orange hover:bg-light-orange font-bold text-sm"
                   (click)="backToHome()">
               Back to home
           </button>

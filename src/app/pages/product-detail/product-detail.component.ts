@@ -1,11 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { distinctUntilChanged, switchMap, tap } from 'rxjs';
+import { switchMap} from 'rxjs';
 import { ProductService } from '../../services/product.service';
 import { Products } from 'src/app/interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Cart } from 'src/app/interfaces/cart.interface';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,6 +14,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class ProductDetailComponent implements OnInit{
 
+  quantity: number = 0;
 
   product: Products = {
     id: 0,
@@ -55,7 +56,6 @@ export class ProductDetailComponent implements OnInit{
     others: []
   };
 
-
   constructor(private activatedRoute: ActivatedRoute,
               private productService: ProductService,
               private location: Location,
@@ -67,6 +67,10 @@ export class ProductDetailComponent implements OnInit{
       .subscribe(product => {
         this.product = product
       })
+      const cart: Array<Cart> = JSON.parse(localStorage.getItem('cart')!);
+      let index = cart.findIndex(cart => cart.product.id == this.product.id);
+      console.log(cart[index].product.id);
+      this.quantity = cart[index].quantity;
   }
 
   goBack(){
@@ -79,6 +83,20 @@ export class ProductDetailComponent implements OnInit{
 
   increaseProduct(product: Products){
     this.cartService.increaseProduct(product);
+    this.cartService.currentDataCart$.subscribe( cart => {
+      let index = cart.findIndex(cart => cart.product.id === product.id);
+      this.quantity = cart[index].quantity;
+      // this.saveLocalStorage();
+    })
+  }
+
+  decreaseProduct(product: Products){
+    this.cartService.decreaseProduct(product);
+    this.cartService.currentDataCart$.subscribe( cart => {
+      let index = cart.findIndex(cart => cart.product.id === product.id);
+      this.quantity = cart[index].quantity;
+      // this.saveLocalStorage();
+    })
   }
 
 }

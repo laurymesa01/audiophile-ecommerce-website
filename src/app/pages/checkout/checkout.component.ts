@@ -26,8 +26,8 @@ export class CheckoutComponent implements OnInit{
   vat: number = 0;
   grandTotal: number = 0;
   detailsFormGroup: FormGroup = this._formBuilder.group({
-    name: new FormControl(" ", Validators.required),
-    email: new FormControl(" ", Validators.required),
+    name: new FormControl(" ", [Validators.required, ]),
+    email: new FormControl(" ", [Validators.required, Validators.email]),
     phone: new FormControl(" ", Validators.required),
     address: new FormControl(" ", Validators.required),
     zip: new FormControl(" ", Validators.required),

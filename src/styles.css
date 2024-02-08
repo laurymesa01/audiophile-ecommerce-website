@@ -51,11 +51,11 @@ body{
 }
 
 .btn{
-  @apply py-3 w-32 mr-2 mb-2 text-sm font-semibold uppercase tracking-wider;
+  @apply py-3 w-36 mr-2 text-sm font-semibold uppercase tracking-wider;
 }
 
 .btn-orange{
-  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white active:bg-light-orange;
+  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white active:bg-light-orange ;
 }
 
 .btn-border{
@@ -64,4 +64,8 @@ body{
 
 .btn-back{
   @apply opacity-60 hover:text-dark-orange hover:opacity-100;
+}
+
+.btn-quantity{
+  @apply text-black  flex justify-between items-center px-4 bg-dark-grey rounded-sm font-bold;
 }
