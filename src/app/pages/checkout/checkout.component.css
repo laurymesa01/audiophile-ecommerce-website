@@ -40,6 +40,10 @@ input, .input-radio{
   height: auto;
 }
 
+.backdrop{
+  background-color: rgba(0,0,0,0.5);
+}
+
 /* .ng-invalid.ng-touched input{
   border: 1px solid #CD2C2C;
 } */

@@ -181,4 +181,8 @@
 
 </section>
 
-<app-bill *ngIf="billModal" [cart]="cart" [grandTotal]="grandTotal"></app-bill>
+<app-bill *ngIf="billModal"
+          [cart]="cart"
+          [grandTotal]="grandTotal"
+          class="backdrop overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+</app-bill>

@@ -17,7 +17,8 @@
               </button>
 
               <app-cart *ngIf="modal"
-                        [modal]="modal">
+                        [modal]="modal"
+                        class="backdrop overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               </app-cart>
           </div>
           <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
@@ -34,7 +35,7 @@
   </nav>
 </header>
 
-<app-menu *ngIf="modalCategories" ></app-menu>
+<app-menu *ngIf="modalCategories" class="backdrop overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none"></app-menu>
 
 <router-outlet></router-outlet>
 

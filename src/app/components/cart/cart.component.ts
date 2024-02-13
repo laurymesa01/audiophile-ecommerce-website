@@ -47,7 +47,7 @@ export class CartComponent implements OnInit{
     if (this.cart.length > 0) {
       this.router.navigate(['checkout']);
     }
-    this.modal = false;
+    this.modal = !this.modal;
   }
 
   saveLocalStorage(){

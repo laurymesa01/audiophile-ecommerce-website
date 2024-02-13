@@ -13,4 +13,8 @@ ul li a{
   font-weight: bold;
 }
 
+.backdrop{
+  background-color: rgba(0,0,0,0.5);
+}
+
 
