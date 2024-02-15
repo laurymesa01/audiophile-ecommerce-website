@@ -10,34 +10,74 @@
         <p class="subtitle mb-4">Billing details</p>
         <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
           <div class="flex flex-col">
-            <label class="label" for="name">Name</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="name"
+                      [ngStyle]="this.detailsFormGroup.get('name')?.invalid && this.detailsFormGroup.get('name')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                Name
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('name')?.invalid && this.detailsFormGroup.get('name')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="text"
                     name="name"
                     id="name"
-                    class="input "
+                    class="input"
+                    placeholder="Alexei Ward"
                     formControlName="name"
-                    required
-                    autofocus
-                    (blur)="detailsFormGroup.get('name')!.markAsTouched()">
+                    required>
           </div>
           <div class="flex flex-col">
             <div class="flex flex-row justify-between">
-              <label class="label invalid:text-red-invalid" for="email">Email Address</label>
-              <span *ngIf="this.detailsFormGroup.get('email')?.errors?.['email']" class="label text-red-invalid peer-invalid:visible">Wrong format</span>
+              <label  class="label"
+                      for="email"
+                      [ngStyle]="this.detailsFormGroup.get('email')?.invalid && this.detailsFormGroup.get('email')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+              Email Address
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('email')?.invalid && this.detailsFormGroup.get('email')?.touched">
+                Wrong format
+              </span>
             </div>
             <input  type="email"
                     name="email"
                     id="email"
-                    class="input invalid:border-red-invalid"
+                    class="input"
+                    placeholder="alexei@mail.com"
                     formControlName="email"
                     required>
           </div>
           <div class="flex flex-col">
-            <label class="label" for="phone">Phone Number</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="phone"
+                      [ngStyle]="this.detailsFormGroup.get('phone')?.errors?.['pattern'] && this.detailsFormGroup.get('phone')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                Phone Number
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('phone')?.errors?.['pattern'] && this.detailsFormGroup.get('phone')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="tel"
                     name="phone"
                     id="phone"
                     class="input"
+                    placeholder="+1 202-555-0136"
                     formControlName="phone"
                     required>
           </div>
@@ -48,31 +88,98 @@
         <p class="subtitle mb-4">Shipping info</p>
         <div class="flex flex-col space-y-6 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-6 sm:space-y-0">
           <div class="sm:col-span-2 flex flex-col">
-            <label class="label" for="address">Address</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="address"
+                      [ngStyle]="this.detailsFormGroup.get('address')?.invalid && this.detailsFormGroup.get('address')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                Address
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('address')?.invalid && this.detailsFormGroup.get('address')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="text"
                     name="address"
+                    id="address"
                     class="input"
+                    placeholder="1137 Williams Avenue"
                     formControlName="address"
                     required>
           </div>
           <div class=" flex flex-col">
-            <label class="label">ZIP Code</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="zip"
+                      [ngStyle]="this.detailsFormGroup.get('zip')?.invalid && this.detailsFormGroup.get('zip')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                ZIP Code
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('zip')?.invalid && this.detailsFormGroup.get('zip')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="text"
                     class="input"
+                    name="zip"
+                    id="zip"
+                    placeholder="10001"
                     formControlName="zip"
-                    required="">
+                    required>
           </div>
           <div class=" flex flex-col">
-            <label class="label">City</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="city"
+                      [ngStyle]="this.detailsFormGroup.get('city')?.invalid && this.detailsFormGroup.get('city')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                City
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('zip')?.invalid && this.detailsFormGroup.get('zip')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="text"
                     class="input"
+                    name="city"
+                    id="city"
+                    placeholder="New York"
                     formControlName="city"
                     required>
           </div>
           <div class=" flex flex-col">
-            <label class="label">Country</label>
+            <div class="flex flex-row justify-between">
+              <label  class="label"
+                      for="country"
+                      [ngStyle]="this.detailsFormGroup.get('country')?.invalid && this.detailsFormGroup.get('country')?.touched?{
+                        'color': '#CD2C2C'
+                      }:{
+                        'color': '#000'
+                      }">
+                Country
+              </label>
+              <span class="span"
+                    *ngIf="this.detailsFormGroup.get('country')?.invalid && this.detailsFormGroup.get('country')?.touched">
+                Wrong format
+              </span>
+            </div>
             <input  type="text"
                     class="input"
+                    name="country"
+                    id="country"
+                    placeholder="United States"
                     formControlName="country"
                     required>
           </div>
@@ -112,12 +219,22 @@
           </div>
           <div *ngIf="miCheckbox1.checked" class="flex flex-col sm:col-span-2 sm:grid sm:grid-cols-2 sm:gap-x-6">
             <div class="flex flex-col">
-              <label for="" class="label">e-Money Number</label>
-              <input type="text" class="input">
+              <label for="eNumber" class="label">e-Money Number</label>
+              <input  type="text"
+                      name="eNumber"
+                      id="eNumber"
+                      class="input"
+                      placeholder=""
+                      formControlName="eNumber">
             </div>
             <div class="flex flex-col">
-              <label for="" class="label">e-Money PIN</label>
-              <input type="text" class="input">
+              <label for="ePin" class="label">e-Money PIN</label>
+              <input  type="text"
+                      name="ePin"
+                      id="ePin"
+                      class="input"
+                      placeholder=""
+                      formControlName="ePin">
             </div>
           </div>
 

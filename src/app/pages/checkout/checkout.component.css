@@ -15,13 +15,14 @@ label{
   letter-spacing: -0.21px;
 }
 
-input, .input-radio{
-  /* border: 1px solid #CFCFCF; */
-  padding: 8px;
+.input-radio{
+  padding: 1.5rem;
+  height: 6vh;
 }
 
-.input-radio{
-  height: 6vh;
+.input-radio input{
+  /* border: 1px solid #CFCFCF; */
+  padding: 10px;
 }
 
 .input-radio:focus{
@@ -44,9 +45,13 @@ input, .input-radio{
   background-color: rgba(0,0,0,0.5);
 }
 
-/* .ng-invalid.ng-touched input{
-  border: 1px solid #CD2C2C;
-} */
+input.ng-invalid.ng-touched{
+  border: 2px solid #CD2C2C;
+}
+
+input.ng-valid.ng-dirty{
+  border: 1px solid #D87D4A;
+}
 
 
 button{
@@ -63,3 +68,4 @@ button{
   }
 
 }
+

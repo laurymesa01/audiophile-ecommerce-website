@@ -5,7 +5,7 @@ import { Products } from 'src/app/interfaces/product.interface';
 import { CartService } from '../../services/cart.service';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/interfaces/cart.interface';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 
 @Component({
@@ -26,14 +26,15 @@ export class CheckoutComponent implements OnInit{
   vat: number = 0;
   grandTotal: number = 0;
   detailsFormGroup: FormGroup = this._formBuilder.group({
-    name: new FormControl(" ", [Validators.required, ]),
+    name: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
     email: new FormControl(" ", [Validators.required, Validators.email]),
-    phone: new FormControl(" ", Validators.required),
-    address: new FormControl(" ", Validators.required),
-    zip: new FormControl(" ", Validators.required),
-    city: new FormControl(" ", Validators.required),
-    country: new FormControl(" ", Validators.required),
-
+    phone: new FormControl(" ", [Validators.required, Validators.pattern('/^\(\d{3}\) \d{3}-\d{4}$/')] ),
+    address: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
+    zip: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
+    city: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
+    country: new FormControl(" ",[Validators.required, Validators.minLength(3)]),
+    eNumber: new FormControl(" "),
+    ePin: new FormControl(" ")
   })
 
 
@@ -48,6 +49,11 @@ export class CheckoutComponent implements OnInit{
   goBack(){
     this.location.back();
   }
+
+  // phoneValidator(control: AbstractControl): ValidationErrors | null{
+  //   const valor = control.value;
+  //   if(){}
+  // }
 
   pay(){
     if(this.detailsFormGroup.valid){

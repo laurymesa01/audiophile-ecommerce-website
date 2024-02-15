@@ -1,4 +1,10 @@
-<section class="mt-20 rounded-b-md absolute w-full bg-white lg:hidden">
+<section  class="rounded-b-md absolute w-full bg-white lg:hidden"
+          [ngStyle]="route?{
+            'margin-top': '20px'
+          }:
+          {
+            'margin-top': 0
+          }">
   <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
   <app-cards></app-cards>
 </section>
