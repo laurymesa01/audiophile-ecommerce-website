@@ -17,11 +17,11 @@
       <p class="font-bold mb-8">{{product.price | currency:'USD' :'symbol': '1.0-0'}}</p>
       <div class="flex flex-row space-x-4">
         <button class="btn-quantity w-24" >
-          <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="decreaseProduct(product)">-</span>
+          <span class="opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="decreaseProduct(product)">-</span>
             {{quantity}}
-          <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="increaseProduct(product)">+</span>
+          <span class="opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="increaseProduct(product)">+</span>
         </button>
-        <button class="btn btn-orange h-full" (click)="addToCart(product)">Add to cart</button>
+        <button class="btn btn-orange h-full" (click)="addToCart(product)" [disabled]="disabled">Add to cart</button>
       </div>
     </div>
   </section>

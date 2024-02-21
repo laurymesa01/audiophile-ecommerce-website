@@ -59,7 +59,7 @@ body{
 }
 
 .btn-orange{
-  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white active:bg-light-orange ;
+  @apply focus:outline-none bg-dark-orange hover:bg-light-orange text-white active:bg-light-orange disabled:bg-light-orange disabled:cursor-auto;
 }
 
 .btn-border{
