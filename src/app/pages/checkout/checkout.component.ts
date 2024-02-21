@@ -43,17 +43,24 @@ export class CheckoutComponent implements OnInit{
 
   ngOnInit(){
     this.cart = JSON.parse(localStorage.getItem('cart') || '[]') || [];
-    this.getTotal()
+    this.cart.forEach(cart => {
+      let newTitle = this.fixTitleProduct(cart.product);
+      cart.product.name = newTitle;
+    })
+    this.getTotal();
   }
 
   goBack(){
     this.location.back();
   }
 
-  // phoneValidator(control: AbstractControl): ValidationErrors | null{
-  //   const valor = control.value;
-  //   if(){}
-  // }
+  fixTitleProduct(product: Products){
+    let name = product.name;
+    let words = name.split(' ');
+    words.pop();
+    let newTitle = words.join(' ');
+    return newTitle;
+  }
 
   pay(){
     if(this.detailsFormGroup.valid){

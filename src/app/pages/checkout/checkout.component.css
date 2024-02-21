@@ -38,7 +38,12 @@ label{
 }
 
 .products-checkout{
+  cursor: pointer;
   height: auto;
+}
+
+.products-checkout:hover button{
+  background-color: #fbaf85;
 }
 
 .backdrop{

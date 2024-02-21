@@ -23,12 +23,30 @@ export class CartComponent implements OnInit{
   ngOnInit(){
     this.cartService.currentDataCart$.subscribe(products => {
       if(products && products.length > 0){
+        products.forEach(cart => {
+          let newTitle = this.fixTitleProduct(cart.product);
+          cart.product.name = newTitle;
+        });
         this.cart = products;
         this.totalQuantity = products.reduce((sum, current) => sum + (current.quantity), 0);
         this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
         this.saveLocalStorage();
       }
+      else{
+        this.cart.forEach(cart => {
+          let newTitle = this.fixTitleProduct(cart.product);
+          cart.product.name = newTitle;
+        });
+      }
     })
+  }
+
+  fixTitleProduct(product: Products){
+    let name = product.name;
+    let words = name.split(' ');
+    words.pop();
+    let newTitle = words.join(' ');
+    return newTitle;
   }
 
   public remove(){
@@ -39,8 +57,6 @@ export class CartComponent implements OnInit{
     localStorage.removeItem('cart');
     localStorage.removeItem('totalPrice');
     localStorage.removeItem('totalQuantity');
-
-
   }
 
   checkout(){

@@ -55,7 +55,7 @@ body{
 }
 
 .btn{
-  @apply py-3 w-36 mr-2 text-sm font-semibold uppercase tracking-wider;
+  @apply py-3 w-36 mr-2 text-sm font-semibold uppercase tracking-wider cursor-pointer;
 }
 
 .btn-orange{

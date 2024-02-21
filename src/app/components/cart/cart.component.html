@@ -7,7 +7,7 @@
         <div class="bg-white pb-4 pt-5 dark:bg-very-dark-blue h-full">
             <div class="flex flex-row justify-between h-7">
               <p class="font-bold uppercase text-lg text-black">Cart({{totalQuantity}})</p>
-              <button class="opacity-50 text-black hover:text-dark-orange hover:opacity-100" (click)="remove()">Remove all</button>
+              <button class="opacity-50 text-black hover:text-dark-orange hover:opacity-100 underline" (click)="remove()">Remove all</button>
             </div>
             <div class="py-4 flex justify-between items-center" *ngFor="let product of cart">
               <div class="flex">
@@ -17,7 +17,7 @@
                   <p class="text-sm opacity-50 font-bold leading-6 text-black">{{product.product.price | currency:'USD' :'symbol': '1.0-0'}}</p>
                 </div>
               </div>
-              <button class="btn-quantity h-8 w-24" >
+              <button class="btn-quantity h-8 w-24 ml-6" >
                 <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="decreaseProduct(product.product)">-</span>
                 {{product.quantity}}
                 <span class="h-full opacity-40 text-sm hover:text-dark-orange hover:opacity-100 flex items-center" (click)="increaseProduct(product.product)">+</span>

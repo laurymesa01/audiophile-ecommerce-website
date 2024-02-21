@@ -12,3 +12,7 @@ ul li a{
 .info p{
   line-height: 25px;
 }
+
+svg:hover path{
+  fill: #D87D4A;
+}
