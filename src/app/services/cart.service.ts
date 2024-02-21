@@ -15,7 +15,9 @@ export class CartService {
   constructor() { }
 
   public changeCart(product: Products){
+    console.log('Producto desde el carrito',product);
     let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
+    console.log('index', index);
     if(index === -1){
       const newProduct: Cart = {
         product: product,
@@ -49,7 +51,7 @@ export class CartService {
 
   increaseProduct(product: Products){
     let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
-    if(index != -1){
+    if(index !== -1){
       this.myShopingCart[index].quantity ++;
     }
     this.cart.next(this.myShopingCart);
@@ -58,7 +60,7 @@ export class CartService {
 
   decreaseProduct(product: Products){
     let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
-    if(index != -1){
+    if(index !== -1){
       if(this.myShopingCart[index].quantity === 1){
         this.removeElementCart(index);
       }

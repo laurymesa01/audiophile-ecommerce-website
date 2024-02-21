@@ -65,9 +65,9 @@ export class ProductDetailComponent implements OnInit{
     this.activatedRoute.params
       .pipe(switchMap(({id}) => this.productService.getProductById(id)))
       .subscribe(product => {
-        this.product = product
+        this.product = product;
       })
-      const cart: Array<Cart> = JSON.parse(localStorage.getItem('cart')!);
+      const cart: Array<Cart> = JSON.parse(localStorage.getItem('cart')!) || [];
       let index = cart.findIndex(cart => cart.product.id == this.product.id);
       console.log(cart[index].product.id);
       this.quantity = cart[index].quantity;

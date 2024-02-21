@@ -21,6 +21,7 @@ export class CartComponent implements OnInit{
               private cartService: CartService){}
 
   ngOnInit(){
+    console.log('CART', this.cart);
     this.cartService.currentDataCart$.subscribe(products => {
       if(products && products.length > 0){
         products.forEach(cart => {
@@ -29,7 +30,11 @@ export class CartComponent implements OnInit{
         });
         this.cart = products;
         this.totalQuantity = products.reduce((sum, current) => sum + (current.quantity), 0);
+        console.log(this.totalQuantity);
+
         this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
+        console.log(this.totalPrice);
+
         this.saveLocalStorage();
       }
       else{
@@ -76,8 +81,8 @@ export class CartComponent implements OnInit{
     this.cartService.increaseProduct(product);
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
-      this.totalQuantity ++;
-      this.totalPrice += product.price;
+      // this.totalQuantity ++;
+      // this.totalPrice += product.price;
       this.saveLocalStorage();
     })
   }
@@ -86,8 +91,8 @@ export class CartComponent implements OnInit{
     this.cartService.decreaseProduct(product);
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
-      this.totalQuantity --;
-      this.totalPrice -= product.price;
+      // this.totalQuantity --;
+      // this.totalPrice -= product.price;
       this.saveLocalStorage();
     })
   }
