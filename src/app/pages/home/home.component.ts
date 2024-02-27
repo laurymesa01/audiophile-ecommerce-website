@@ -9,9 +9,18 @@ import { Products } from 'src/app/interfaces/product.interface';
 })
 export class HomeComponent{
 
+  modal           :boolean  = false;
+
   constructor(private productService: ProductService){}
 
   getProductByName(){}
+
+  openCart(){
+    this.modal = true;
+    // this.style = {
+    //   'visibility': 'hidden'
+    // }
+  }
 
 
 }

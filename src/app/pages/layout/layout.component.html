@@ -16,10 +16,12 @@
                 </svg>
               </button>
 
-              <app-cart *ngIf="modal"
-                        [modal]="modal"
-                        class="backdrop overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-              </app-cart>
+                <app-cart *ngIf="modal"
+                          [modal]="modal"
+                          class="backdrop fixed"
+                          >
+                </app-cart>
+
           </div>
           <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
               <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 uppercase">

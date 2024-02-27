@@ -17,11 +17,11 @@ export class CartComponent implements OnInit{
   public totalPrice   : number = Number(localStorage.getItem('totalPrice'));
   public totalQuantity: number = Number(localStorage.getItem('totalQuantity'));
 
+
   constructor(private router: Router,
               private cartService: CartService){}
 
   ngOnInit(){
-    console.log('CART', this.cart);
     this.cartService.currentDataCart$.subscribe(products => {
       if(products && products.length > 0){
         products.forEach(cart => {
@@ -43,7 +43,7 @@ export class CartComponent implements OnInit{
           cart.product.name = newTitle;
         });
       }
-    })
+    });
   }
 
   fixTitleProduct(product: Products){
@@ -68,7 +68,7 @@ export class CartComponent implements OnInit{
     if (this.cart.length > 0) {
       this.router.navigate(['checkout']);
     }
-    this.modal = !this.modal;
+    this.modal = false;
   }
 
   saveLocalStorage(){
@@ -81,8 +81,6 @@ export class CartComponent implements OnInit{
     this.cartService.increaseProduct(product);
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
-      // this.totalQuantity ++;
-      // this.totalPrice += product.price;
       this.saveLocalStorage();
     })
   }
@@ -91,8 +89,6 @@ export class CartComponent implements OnInit{
     this.cartService.decreaseProduct(product);
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
-      // this.totalQuantity --;
-      // this.totalPrice -= product.price;
       this.saveLocalStorage();
     })
   }

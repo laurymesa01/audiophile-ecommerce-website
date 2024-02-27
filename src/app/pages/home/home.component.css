@@ -4,10 +4,7 @@ section{
 }
 
 .header-section{
-  height: 120vh;
   background-image: url('../../../assets/home/mobile/image-header.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .header-section .new{

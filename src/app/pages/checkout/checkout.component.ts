@@ -1,9 +1,6 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Location } from '@angular/common';
-import { CartComponent } from 'src/app/components/cart/cart.component';
 import { Products } from 'src/app/interfaces/product.interface';
-import { CartService } from '../../services/cart.service';
-import { Router } from '@angular/router';
 import { Cart } from 'src/app/interfaces/cart.interface';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Products } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
@@ -17,8 +17,9 @@ export class LayoutComponent implements OnInit{
     "speakers",
     "earphones"
   ]
-  modal           : boolean = false;
+  modal           :boolean  = false;
   modalCategories : boolean = false;
+  style = {}
 
 
   constructor(private productService: ProductService,
@@ -26,8 +27,9 @@ export class LayoutComponent implements OnInit{
 
   ngOnInit(){
     this.Style;
-    console.log(this.router.url);
-
+    this.style = {
+      'filter': 'blur(0)',
+    }
   }
 
   public get Style(){
@@ -42,8 +44,19 @@ export class LayoutComponent implements OnInit{
     return style;
   }
 
+  public get StyleBackdrop(){
+    let style = {};
+    style = {
+      'background-color': 'rgba(0,0,0,0.5)'
+    }
+    return style;
+  }
+
   openCart(){
-    this.modal = !this.modal;
+    this.modal = true;
+    // this.style = {
+    //   'filter': 'blur(4px)',
+    // }
   }
 
   openCategories(){
