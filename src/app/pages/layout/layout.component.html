@@ -18,8 +18,9 @@
 
                 <app-cart *ngIf="modal"
                           [modal]="modal"
-                          class="backdrop fixed"
-                          >
+                          class="backdrop overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+                          (onCheckout)="checkout($event)"
+                          [ngStyle]="style">
                 </app-cart>
 
           </div>
@@ -37,7 +38,11 @@
   </nav>
 </header>
 
-<app-menu *ngIf="modalCategories" class="backdrop overflow-x-hidden overflow-y-auto inset-0 z-50 outline-none focus:outline-none"></app-menu>
+<app-menu *ngIf="modalCategories"
+          [ngStyle]="style"
+          class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+          >
+</app-menu>
 
 <router-outlet></router-outlet>
 

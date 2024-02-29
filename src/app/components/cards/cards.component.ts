@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
+import { ModalsService } from '../../services/modals.service';
 
 @Component({
   selector: 'app-cards',
@@ -22,5 +23,11 @@ export class CardsComponent {
     },
   ];
 
+  constructor(private modalsService: ModalsService){}
+
+  goToCategory(category: string){
+    this.modalsService.toggleModal(false);
+    this.modalsService.goToCategory(category);
+  }
 
 }

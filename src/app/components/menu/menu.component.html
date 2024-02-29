@@ -1,6 +1,7 @@
-<section  class="rounded-b-md absolute w-full bg-white lg:hidden"
+<section  *ngIf="modal"
+          class="rounded-b-md absolute w-full bg-white lg:hidden"
           [ngStyle]="route?{
-            'margin-top': '20px'
+            'margin-top': '5rem'
           }:
           {
             'margin-top': 0
