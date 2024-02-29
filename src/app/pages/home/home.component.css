@@ -16,23 +16,12 @@ h1{
 }
 
 .orange-section{
-  height: auto;
   background-image: url('../../../assets/home/desktop/pattern-circles.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: 50% -160px;
 }
 
-.orange-section img{
-  height: 150px;
-  width: 140px;
-}
-
 .image-background{
-  height: 35vh;
   background-image: url('../../../assets/home/mobile/image-speaker-zx7.jpg');
-  background-position: center;
-  background-size: cover;
   padding-left: 10%;
 }
 

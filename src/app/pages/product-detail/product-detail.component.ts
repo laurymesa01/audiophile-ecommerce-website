@@ -69,10 +69,11 @@ export class ProductDetailComponent implements OnInit{
       .subscribe(product => {
         this.product = product;
         this.searchProductInCart(this.product.id);
-      })
-    if (this.cart.length > 0) {
-      this.disabled = true;
-    }
+      });
+    // if (this.cart.length > 0) {
+    //   this.disabled = true;
+    // }
+
   }
 
   goBack(){

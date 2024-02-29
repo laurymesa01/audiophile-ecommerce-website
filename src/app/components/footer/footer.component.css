@@ -13,6 +13,6 @@ ul li a{
   line-height: 25px;
 }
 
-svg:hover path{
+.social-media:hover path{
   fill: #D87D4A;
 }

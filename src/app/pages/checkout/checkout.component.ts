@@ -23,15 +23,15 @@ export class CheckoutComponent implements OnInit{
   vat: number = 0;
   grandTotal: number = 0;
   detailsFormGroup: FormGroup = this._formBuilder.group({
-    name: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
-    email: new FormControl(" ", [Validators.required, Validators.email]),
-    phone: new FormControl(" ", [Validators.required, Validators.pattern('/^\(\d{3}\) \d{3}-\d{4}$/')] ),
-    address: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
-    zip: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
-    city: new FormControl(" ", [Validators.required, Validators.minLength(3)]),
-    country: new FormControl(" ",[Validators.required, Validators.minLength(3)]),
-    eNumber: new FormControl(" "),
-    ePin: new FormControl(" ")
+    name: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    phone: new FormControl("", [Validators.required, Validators.pattern('/^\(\d{3}\) \d{3}-\d{4}$/')] ),
+    address: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    zip: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    city: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    country: new FormControl("",[Validators.required, Validators.minLength(3)]),
+    eNumber: new FormControl(""),
+    ePin: new FormControl("")
   })
 
 

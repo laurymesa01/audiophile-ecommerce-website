@@ -254,7 +254,12 @@
 
     </form>
 
-    <div class="products-checkout bg-white rounded p-6 sm:p-8 w-full lg:grow">
+    <div  class="products-checkout bg-white rounded p-6 sm:p-8 w-full lg:grow"
+          [ngStyle]="detailsFormGroup.invalid?{
+            'cursor': 'auto'
+          }:{
+            'cursor': 'pointer'
+          }">
       <p class="font-bold uppercase text-lg text-black mb-4">Summary</p>
 
       <div class="py-4 flex justify-between items-center" *ngFor="let product of cart">
@@ -269,25 +274,25 @@
       </div>
 
       <div class="flex mb-2 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Total</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{total | currency:'USD' :'symbol': '1.0-0'}}</p>
+        <p class="p-form">Total</p>
+        <p class="text-base text-black font-bold leading-6 text-start">{{total | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
       <div class="flex mb-2 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Shipping</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{shipping | currency:'USD' :'symbol': '1.0-0'}}</p>
+        <p class="p-form">Shipping</p>
+        <p class="text-base text-black font-bold leading-6 text-start">{{shipping | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
       <div class="flex mb-6 justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Vat(included)</p>
-        <p class="text-base text-black font-bold uppercase leading-6 text-start">{{vat | currency:'USD' :'symbol': '1.0-0'}}</p>
+        <p class="p-form">Vat(included)</p>
+        <p class="text-base text-black font-bold leading-6 text-start">{{vat | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
       <div class="flex justify-between items-center">
-        <p class="text-base text-black opacity-50 uppercase leading-6 text-start font-medium">Grand total</p>
-        <p class="text-base font-bold uppercase leading-6 text-start text-dark-orange">{{grandTotal | currency:'USD' :'symbol': '1.0-0'}}</p>
+        <p class="p-form">Grand total</p>
+        <p class="text-base font-bold  leading-6 text-start text-dark-orange">{{grandTotal | currency:'USD' :'symbol': '1.0-0'}}</p>
       </div>
 
-      <div class="flex w-full">
+      <div  class="flex w-full">
         <button type="submit"
-                class="h-12 w-full uppercase mt-6 cursor-pointer text-sm font-semibold tracking-wider bg-dark-orange text-white active:bg-light-orange"
+                class="h-12 w-full uppercase mt-6 cursor-pointer text-sm font-semibold tracking-wider bg-dark-orange text-white active:bg-light-orange disabled:bg-light-orange disabled:cursor-auto"
                 (click)="pay()"
                 [disabled]="detailsFormGroup.invalid">
             Continue & pay

@@ -42,6 +42,10 @@ body{
   @apply text-xs font-medium text-red-invalid peer-invalid:visible;
 }
 
+.p-form{
+  @apply text-base text-black opacity-50 uppercase leading-6 text-start font-medium;
+}
+
 .div-card{
   @apply bg-dark-grey pb-4 flex flex-col justify-end items-center rounded relative cursor-pointer;
 }

@@ -12,6 +12,7 @@ import { Cart } from 'src/app/interfaces/cart.interface';
 export class CartComponent implements OnInit{
 
   @Input() modal = false;
+  @Output() onCheckout = new EventEmitter<boolean>();
 
   public cart         : Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
   public totalPrice   : number = Number(localStorage.getItem('totalPrice'));
@@ -65,9 +66,7 @@ export class CartComponent implements OnInit{
   }
 
   checkout(){
-    if (this.cart.length > 0) {
-      this.router.navigate(['checkout']);
-    }
+    this.onCheckout.emit(true);
     this.modal = false;
   }
 
