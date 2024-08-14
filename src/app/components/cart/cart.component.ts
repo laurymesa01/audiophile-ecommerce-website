@@ -34,23 +34,25 @@ export class CartComponent implements OnInit{
         console.log(this.totalQuantity);
 
         this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
-        console.log(this.totalPrice);
 
         this.saveLocalStorage();
       }
-      else{
-        this.cart.forEach(cart => {
-          let newTitle = this.fixTitleProduct(cart.product);
-          cart.product.name = newTitle;
-        });
-      }
+      // else{
+      //   console.log(this.cart);
+      //   this.cart.forEach(cart => {
+      //     let newTitle = this.fixTitleProduct(cart.product);
+      //     cart.product.name = newTitle;
+      //   });
+      // }
     });
   }
 
   fixTitleProduct(product: Products){
     let name = product.name;
     let words = name.split(' ');
-    words.pop();
+    if (words.length > 2) {
+      words.pop();
+    }
     let newTitle = words.join(' ');
     return newTitle;
   }
