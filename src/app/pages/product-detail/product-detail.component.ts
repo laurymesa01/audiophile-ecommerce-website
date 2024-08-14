@@ -64,12 +64,34 @@ export class ProductDetailComponent implements OnInit{
               private cartService: CartService,){}
 
   ngOnInit(): void {
-    this.activatedRoute.params
-      .pipe(switchMap(({id}) => this.productService.getProductById(id)))
-      .subscribe(product => {
-        this.product = product;
-        this.searchProductInCart(this.product.id);
-      });
+    // this.activatedRoute.params
+    //   .pipe(switchMap(({id}) => this.productService.getProductById(id)))
+    //   .subscribe(product => {
+    //     this.product = product;
+    //     this.searchProductInCart(this.product.id);
+    //   });
+    this.activatedRoute.paramMap.subscribe(params => {
+      const param = params.get('param');
+      if (param) {
+        if (isNaN(Number(param))) {
+          this.productService.getProductBySlug(param).subscribe({
+            next: (product) => {
+              console.log(this.product);
+              this.product = product[0];
+              this.searchProductInCart(this.product.id);
+            }
+          })
+        }
+        else{
+          this.productService.getProductById(param).subscribe({
+            next: (product) => {
+              this.product = product;
+              this.searchProductInCart(this.product.id);
+            }
+          })
+        }
+      }
+    })
     // if (this.cart.length > 0) {
     //   this.disabled = true;
     // }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Products } from '../interfaces/product.interface';
@@ -22,6 +22,11 @@ export class ProductService {
 
   getProductById(id: string): Observable<Products>{
     return this.http.get<Products>(`${this.url}/${id}`);
+  }
+
+  getProductBySlug(slug: string): Observable<Products[]>{
+    const params = new HttpParams().set('slug', slug);
+    return this.http.get<Products[]>(`${this.url}`, { params });
   }
 
 }

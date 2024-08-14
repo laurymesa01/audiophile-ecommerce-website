@@ -24,9 +24,13 @@ const routes: Routes = [
         component: CategoryComponent
       },
       {
-        path: 'products/:id',
+        path: 'products/:param',
         component: ProductDetailComponent
       },
+      // {
+      //   path: 'products/:slug',
+      //   component: ProductDetailComponent
+      // },
     ]
   }
 ];

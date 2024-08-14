@@ -3,7 +3,7 @@
     <p class="new uppercase opacity-25 ">New product</p>
     <h1 class="h1 mt-4 mb-6 text-center lg:text-start">XX99 Mark II <br> Headphones</h1>
     <p class="mb-8 opacity-70 text-center lg:text-start">Experience natural, lifelike audio and exceptional <br> build quality made for the passionate music <br> enthusiast.</p>
-    <button type="button" class="btn btn-orange" (click)="getProductByName()">See product</button>
+    <a type="button" class="btn btn-orange text-center" [routerLink]="['/products', 'xx99-mark-two-headphones']">See product</a>
   </div>
 </section>
 
@@ -19,7 +19,7 @@
     <div class="flex flex-col justify-center items-center lg:items-start mt-8 lg:ml-20">
       <h1 class="h1 mb-6 text-center lg:text-start">ZX9 speaker</h1>
       <p class="mb-6 text-center lg:text-start">Upgrade to premium speakers that are <br> phenomenally built to deliver truly remarkable <br> sound. </p>
-      <a href="">
+      <a  [routerLink]="['/products', 'zx9-speaker']">
         <button type="button" class="btn bg-black hover:bg-grey">See product</button>
       </a>
     </div>
@@ -27,7 +27,7 @@
 
   <div class="image-background h-[50vh] mt-10 bg-center bg-cover flex flex-col items-start justify-center rounded">
     <h4 class="h4 mb-6">ZX7 speaker</h4>
-    <button type="button" class="btn btn-border">See product</button>
+    <a type="button" class="btn btn-border text-center" [routerLink]="['/products', 'zx7-speaker']">See product</a>
   </div>
 
   <div class="flex flex-col md:grid md:grid-cols-2 mt-10 md:space-x-6">
@@ -36,7 +36,7 @@
     </div>
     <div class="h-60 lg:h-auto bg-dark-grey flex flex-col justify-center items-start rounded pl-6">
       <h4 class="h4 mb-6">YX1 earphones</h4>
-    <button type="button" class="btn btn-border">See product</button>
+    <a type="button" class="btn btn-border text-center" [routerLink]="['/products', 'yx1-earphones']">See product</a>
     </div>
   </div>
 
