@@ -22,10 +22,11 @@ export class CheckoutComponent implements OnInit{
   shipping: number = 50;
   vat: number = 0;
   grandTotal: number = 0;
+  // '/^\(\d{3}\) \d{3}-\d{4}$/')]
   detailsFormGroup: FormGroup = this._formBuilder.group({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
     email: new FormControl("", [Validators.required, Validators.email]),
-    phone: new FormControl("", [Validators.required, Validators.pattern('/^\(\d{3}\) \d{3}-\d{4}$/')] ),
+    phone: new FormControl("", [Validators.required, Validators.pattern('^[- +()0-9]+$')]),
     address: new FormControl("", [Validators.required, Validators.minLength(3)]),
     zip: new FormControl("", [Validators.required, Validators.minLength(3)]),
     city: new FormControl("", [Validators.required, Validators.minLength(3)]),

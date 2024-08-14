@@ -1,12 +1,12 @@
 <section  *ngIf="modal"
-          class="rounded-b-md absolute w-full bg-white lg:hidden"
+          class="rounded-b-md absolute w-full bg-white lg:hidden z-20 pt-32 sm:pt-0"
           [ngStyle]="route?{
             'margin-top': '5rem'
           }:
           {
             'margin-top': 0
           }">
-  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <!-- <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
   <app-cards></app-cards>
 </section>
 
