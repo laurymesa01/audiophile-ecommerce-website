@@ -76,9 +76,9 @@ export class ProductDetailComponent implements OnInit{
         if (isNaN(Number(param))) {
           this.productService.getProductBySlug(param).subscribe({
             next: (product) => {
-              console.log(this.product);
               this.product = product[0];
               this.searchProductInCart(this.product.id);
+              this.disabledButton();
             }
           })
         }
@@ -87,14 +87,13 @@ export class ProductDetailComponent implements OnInit{
             next: (product) => {
               this.product = product;
               this.searchProductInCart(this.product.id);
+              this.disabledButton();
             }
           })
         }
       }
+
     })
-    // if (this.cart.length > 0) {
-    //   this.disabled = true;
-    // }
 
   }
 
@@ -102,8 +101,16 @@ export class ProductDetailComponent implements OnInit{
     this.location.back();
   }
 
+  disabledButton(){
+    const index = this.cart.findIndex(p => p.product.id === this.product.id)
+    if (index != -1) {
+      this.disabled = true;
+    }
+  }
+
   addToCart(product: Products){
     this.cartService.changeCart(product);
+    this.quantity ++;
     this.disabled = true;
   }
 
@@ -121,20 +128,19 @@ export class ProductDetailComponent implements OnInit{
     this.cartService.decreaseProduct(product);
     this.cartService.currentDataCart$.subscribe( cart => {
       let index = cart.findIndex(cart => cart.product.id === product.id);
-      this.cart = cart;
-      this.quantity = cart[index].quantity;
-      this.saveLocalStorage();
+      if (index != -1) {
+        this.cart = cart;
+        this.quantity = cart[index].quantity;
+        this.saveLocalStorage();
+      }
+
     })
   }
 
   searchProductInCart(id: number){
-    console.log('ID',id);
-    console.log('CART', this.cart);
     let index = this.cart.findIndex(cart => cart.product.id === id);
-    console.log('index',index);
     if(index !== -1){
       this.quantity = this.cart[index].quantity;
-      console.log('Q',this.quantity);
     }
   }
 
