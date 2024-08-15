@@ -54,13 +54,15 @@ export class LayoutComponent implements OnInit{
     this.modal = !this.modal;
   }
 
-  checkout(event: boolean){
+  checkout(){
     if (this.cart.length > 0) {
       this.router.navigate(['checkout']);
+      this.modal = false;
     }
-    this.style = {
-      'visibility': 'hidden'
-    }
+
+    // this.style = {
+    //   'visibility': 'hidden'
+    // }
   }
 
   openCategories(){
