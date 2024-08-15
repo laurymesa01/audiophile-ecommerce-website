@@ -8,7 +8,7 @@ import { Products } from '../interfaces/product.interface';
 })
 export class ProductService {
 
-  url = 'http://localhost:3000/products'
+  url = 'https://audiophile-api-iuaf.onrender.com/products'
 
   constructor(private http: HttpClient) { }
 
