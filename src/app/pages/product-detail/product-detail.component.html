@@ -72,9 +72,9 @@
   <section class="mt-40">
     <h3 class="h3 text-center mb-6">You may also like</h3>
     <div class="flex flex-col space-y-8 sm:space-y-0 sm:grid sm:grid-cols-3 sm:space-x-4">
-      <div *ngFor="let item of product.others" class=" h-auto">
+      <div *ngFor="let item of product.others" class="h-auto">
         <div class="">
-          <picture>
+          <picture class="h-full">
             <source [srcset]="item.image.desktop" media="(min-width: 1024px)" class="rounded mb-6">
             <source [srcset]="item.image.tablet" media="(min-width: 640px)" class="rounded mb-6">
             <img [src]="item.image.mobile" alt="" class="">

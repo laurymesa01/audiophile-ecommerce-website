@@ -115,12 +115,18 @@ export class ProductDetailComponent implements OnInit{
   }
 
   increaseProduct(product: Products){
+    console.log('HOLL');
     this.cartService.increaseProduct(product);
     this.cartService.currentDataCart$.subscribe( cart => {
       let index = cart.findIndex(cart => cart.product.id === product.id);
-      this.cart = cart;
-      this.quantity = cart[index].quantity;
-      this.saveLocalStorage();
+      if (index != -1) {
+        this.cart = cart;
+        this.quantity = cart[index].quantity;
+        this.saveLocalStorage();
+      }
+      else{
+        this.quantity = 0;
+      }
     })
   }
 
@@ -133,7 +139,6 @@ export class ProductDetailComponent implements OnInit{
         this.quantity = cart[index].quantity;
         this.saveLocalStorage();
       }
-
     })
   }
 

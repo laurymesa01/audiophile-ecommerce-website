@@ -31,6 +31,7 @@ export class LayoutComponent implements OnInit{
               private modalsService: ModalsService){}
 
   ngOnInit(){
+    this.modalCategories = false;
     this.Style;
     this.style = {
       'background-color': 'rgba(0,0,0,0.5)',
@@ -50,7 +51,7 @@ export class LayoutComponent implements OnInit{
   }
 
   openCart(){
-    this.modal = true;
+    this.modal = !this.modal;
   }
 
   checkout(event: boolean){
@@ -64,13 +65,15 @@ export class LayoutComponent implements OnInit{
 
   openCategories(){
     this.modalCategories = !this.modalCategories;
+    console.log(this.modalCategories);
     this.modalsService.toggleModal(this.modalCategories);
-    this.modalsService.currentCategory$.subscribe(category => {
-      this.router.navigate(['', category]);
-      // this.style = {
-      //   'visibility': 'hidden'
-      // }
-    });
-
+    this.modalsService.currentModal$.subscribe(modal => this.modalCategories = modal)
+    // this.modalsService.currentCategory$.subscribe(category => {
+    //   console.log('CATE',category);
+    //   this.router.navigate(['', category]);
+    //   this.style = {
+    //     'visibility': 'hidden'
+    //   }
+    // });
   }
 }

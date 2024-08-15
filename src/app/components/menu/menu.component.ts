@@ -19,6 +19,7 @@ export class MenuComponent {
     if (this.router.url === '/') {
       this.route = true;
     }
-    this.modalsService.currentModal$.subscribe(modal => this.modal = modal);
+    this.modalsService.currentModal$.subscribe(modal => {
+      this.modal = modal});
   }
 }

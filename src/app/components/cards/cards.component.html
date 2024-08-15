@@ -1,5 +1,5 @@
 <section class="flex flex-col sm:grid sm:grid-cols-3  sm:gap-x-4">
-  <div class="card div-card mb-20 md:mb-0 hover:scale-105 duration-300 transition-scale ease " *ngFor="let category of categories" (click)="goToCategory(category.category)" >
+  <a [routerLink]="['', category.category]" class="card div-card mb-20 md:mb-0 hover:scale-105 duration-300 transition-scale ease " *ngFor="let category of categories" (click)="goToCategory(category.category)" >
     <!-- [routerLink]="['', category.category]" -->
     <img [src]="category.imgCategory" alt="" class="headphones-img absolute">
     <h6 class="h6 mb-4">{{category.category}}</h6>
@@ -9,5 +9,5 @@
       </p>
       <svg width="8" height="12" class="ml-3" xmlns="http://www.w3.org/2000/svg"><path d="M1.322 1l5 5-5 5" stroke="#D87D4A" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
     </div>
-  </div>
+  </a>
 </section>

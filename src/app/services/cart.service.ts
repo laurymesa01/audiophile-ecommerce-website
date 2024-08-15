@@ -54,6 +54,13 @@ export class CartService {
     if(index !== -1){
       this.myShopingCart[index].quantity ++;
     }
+    else{
+      const newProduct: Cart = {
+        product: product,
+        quantity: 1
+      }
+      this.myShopingCart.push(newProduct);
+    }
     this.cart.next(this.myShopingCart);
 
   }
