@@ -57,8 +57,8 @@ export class LayoutComponent implements OnInit{
   checkout(){
     if (this.cart.length > 0) {
       this.router.navigate(['checkout']);
-      this.modal = false;
     }
+    this.modal = false;
 
     // this.style = {
     //   'visibility': 'hidden'

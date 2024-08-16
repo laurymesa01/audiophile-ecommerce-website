@@ -17,7 +17,7 @@ export class CartComponent implements OnInit{
   public cart         : Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
   public totalPrice   : number = Number(localStorage.getItem('totalPrice'));
   public totalQuantity: number = Number(localStorage.getItem('totalQuantity'));
-
+  buttonDisabled: boolean = false;
 
   constructor(private router: Router,
               private cartService: CartService){}
@@ -92,5 +92,11 @@ export class CartComponent implements OnInit{
       this.cart = cart;
       this.saveLocalStorage();
     })
+    if (this.cart.length === 0) {
+      // this.buttonDisabled = true;
+      this.totalPrice = 0;
+      this.totalQuantity = 0;
+      this.saveLocalStorage()
+    }
   }
 }

@@ -115,7 +115,7 @@ export class ProductDetailComponent implements OnInit{
   }
 
   increaseProduct(product: Products){
-    console.log('HOLL');
+    this.disabled = true;
     this.cartService.increaseProduct(product);
     this.cartService.currentDataCart$.subscribe( cart => {
       let index = cart.findIndex(cart => cart.product.id === product.id);
@@ -140,6 +140,9 @@ export class ProductDetailComponent implements OnInit{
         this.saveLocalStorage();
       }
     })
+    if (this.cart.length === 0) {
+      this.disabled = false;
+    }
   }
 
   searchProductInCart(id: number){
