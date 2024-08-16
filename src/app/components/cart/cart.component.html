@@ -1,9 +1,9 @@
-<div *ngIf="modal" class="fixed z-50 overflow-y-auto overflow-x-hidden " aria-hidden="true" data-modal-backdrop="static" tabindex="-1" aria-labelledby="modal-title" role="dialog" aria-modal="true" >
-  <!-- <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div> -->
+<div *ngIf="modal" class="fixed z-50 " aria-hidden="true" data-modal-backdrop="static" tabindex="-1" aria-labelledby="modal-title" role="dialog" aria-modal="true" >
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-  <div class="fixed inset-0 z-10 overflow-y-auto">
+  <div class="fixed inset-0  overflow-y-auto">
     <div class="flex items-center justify-center text-center">
-      <div class="container px-4 py-4 absolute transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8">
+      <div class="container px-4 py-4 absolute top-16 transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8">
         <div class="bg-white pb-4 pt-5 dark:bg-very-dark-blue h-full">
             <div class="flex flex-row justify-between h-7">
               <p class="font-bold uppercase text-lg text-black">Cart({{totalQuantity}})</p>
