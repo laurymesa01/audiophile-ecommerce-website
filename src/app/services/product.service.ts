@@ -8,25 +8,25 @@ import { Products } from '../interfaces/product.interface';
 })
 export class ProductService {
 
-  url = 'https://audiophile-api-iuaf.onrender.com/products'
+  url = 'https://audiophile-api-2.onrender.com'
 
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Products[]>{
-    return this.http.get<Products[]>(this.url);
+    return this.http.get<Products[]>(`${this.url}/products`);
   }
 
   getProductsByCategory(title: string): Observable<Products[]>{
-    return this.http.get<Products[]>(`${this.url}?category_like=${title}`);
+    return this.http.get<Products[]>(`${this.url}/products?category_like=${title}`);
   }
 
   getProductById(id: string): Observable<Products>{
-    return this.http.get<Products>(`${this.url}/${id}`);
+    return this.http.get<Products>(`${this.url}/products/${id}`);
   }
 
   getProductBySlug(slug: string): Observable<Products[]>{
     const params = new HttpParams().set('slug', slug);
-    return this.http.get<Products[]>(`${this.url}`, { params });
+    return this.http.get<Products[]>(`${this.url}/products`, { params });
   }
 
 }
