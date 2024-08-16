@@ -193,28 +193,26 @@
             <label class="label">Payment method</label>
           </div>
           <div  class="input-radio input cursor-pointer flex items-center"
-                [ngStyle]="miCheckbox1.checked?{
-                'border': '1px solid #D87D4A'
-                }:{
-                'border': '1px solid #CFCFCF'
-                }">
+                [style]="style1">
             <input  type="checkbox"
-                    checked
+                    [checked]="checkbox1"
                     #miCheckbox1
                     class="checkbox"
-                    (change)="true">
+                    (change)="changePaymentMethod()">
             <label for="" class="text-xs font-bold ml-4">e-Money</label>
           </div>
           <div  class="input-radio input cursor-pointer flex items-center"
-                [ngStyle]="miCheckbox2.checked?{
-                'border': '1px solid #D87D4A'
-                }:{
-                'border': '1px solid #CFCFCF'
-                }">
+                [style]="style2">
+<!-- [ngStyle]="miCheckbox2.checked?{
+  'border': '1px solid #D87D4A'
+  }:{
+  'border': '1px solid #CFCFCF'
+  }" -->
             <input  type="checkbox"
+                    [checked]="checkbox2"
                     #miCheckbox2
                     class="checkbox"
-                    (change)="true">
+                    (change)="changePaymentMethod()">
             <label for="" class="text-xs font-bold ml-4">Cash on Delivery</label>
           </div>
           <div *ngIf="miCheckbox1.checked" class="flex flex-col sm:col-span-2 sm:grid sm:grid-cols-2 sm:gap-x-6">

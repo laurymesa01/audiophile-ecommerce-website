@@ -22,6 +22,10 @@ export class CheckoutComponent implements OnInit{
   shipping: number = 50;
   vat: number = 0;
   grandTotal: number = 0;
+  checkbox1:boolean = true;
+  checkbox2:boolean = false;
+  style1 = {};
+  style2 = {};
   // '/^\(\d{3}\) \d{3}-\d{4}$/')]
   detailsFormGroup: FormGroup = this._formBuilder.group({
     name: new FormControl("", [Validators.required, Validators.minLength(3)]),
@@ -46,6 +50,12 @@ export class CheckoutComponent implements OnInit{
       cart.product.name = newTitle;
     })
     this.getTotal();
+    this.style1 = {
+      'border': '1px solid #D87D4A'
+    }
+    this.style2 = {
+      'border': '1px solid #CFCFCF'
+    }
   }
 
   goBack(){
@@ -72,5 +82,13 @@ export class CheckoutComponent implements OnInit{
     this.total = Number(localStorage.getItem('totalPrice'));
     this.vat = this.total / 5;
     this.grandTotal = this.total + this.shipping + this.vat;
+  }
+
+  changePaymentMethod(){
+    this.checkbox1 = !this.checkbox1;
+    this.checkbox2 = !this.checkbox2;
+    let style = this.style1;
+    this.style1 = this.style2;
+    this.style2 = style;
   }
 }
