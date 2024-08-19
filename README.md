@@ -67,5 +67,5 @@ I need to deepen my knowledge of observables and reactive programming.
 ## Author
 
 - Frontend Mentor - [@laurymesa01](https://www.frontendmentor.io/profile/laurymesa01)
-- LinkedIn - [@lauraelenamesa]('https://www.linkedin.com/in/lauraelenamesa/')
+- LinkedIn - [@lauraelenamesa](https://www.linkedin.com/in/lauraelenamesa/)
 
