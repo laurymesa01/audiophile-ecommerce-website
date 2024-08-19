@@ -4,6 +4,7 @@ import { Cart } from 'src/app/interfaces/cart.interface';
 import { Products } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { ModalsService } from '../../services/modals.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-layout',
@@ -13,8 +14,7 @@ import { ModalsService } from '../../services/modals.service';
 export class LayoutComponent implements OnInit{
 
   products: Products[] = [];
-  public cart         : Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
-
+  public cart: Array<Cart> = JSON.parse(localStorage.getItem('cart') || '[]') || [];
 
   categories: Array<string> = [
     "headphones",
@@ -28,7 +28,8 @@ export class LayoutComponent implements OnInit{
 
   constructor(private productService: ProductService,
               private router: Router,
-              private modalsService: ModalsService){}
+              private modalsService: ModalsService,
+              private cartService: CartService){}
 
   ngOnInit(){
     this.modalCategories = false;
@@ -36,6 +37,11 @@ export class LayoutComponent implements OnInit{
     this.style = {
       'background-color': 'rgba(0,0,0,0.5)',
     }
+    this.cartService.currentDataCart$.subscribe(cart => {
+      this.cart = cart;
+      console.log('CART', this.cart);
+      this.saveLocalStorage()
+    })
   }
 
   public get Style(){
@@ -51,7 +57,9 @@ export class LayoutComponent implements OnInit{
   }
 
   openCart(){
-    this.modal = !this.modal;
+    if (!this.router.url.includes('checkout')) {
+      this.modal = !this.modal;
+    }
   }
 
   checkout(){
@@ -59,10 +67,6 @@ export class LayoutComponent implements OnInit{
       this.router.navigate(['checkout']);
     }
     this.modal = false;
-
-    // this.style = {
-    //   'visibility': 'hidden'
-    // }
   }
 
   openCategories(){
@@ -77,5 +81,9 @@ export class LayoutComponent implements OnInit{
     //     'visibility': 'hidden'
     //   }
     // });
+  }
+
+  saveLocalStorage(){
+    localStorage.setItem("cart", JSON.stringify(this.cart));
   }
 }

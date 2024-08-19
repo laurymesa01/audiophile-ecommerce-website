@@ -15,7 +15,6 @@ export class CartService {
   constructor() { }
 
   public changeCart(product: Products){
-    console.log('Producto desde el carrito',product);
     let index = this.myShopingCart.findIndex(cart => cart.product.id === product.id);
     console.log('index', index);
     if(index === -1){

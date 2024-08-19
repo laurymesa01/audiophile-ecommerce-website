@@ -31,10 +31,7 @@ export class CartComponent implements OnInit{
         });
         this.cart = products;
         this.totalQuantity = products.reduce((sum, current) => sum + (current.quantity), 0);
-        console.log(this.totalQuantity);
-
         this.totalPrice = products.reduce((sum, current) => sum + (current.product.price * current.quantity), 0);
-
         this.saveLocalStorage();
       }
       // else{
@@ -83,6 +80,7 @@ export class CartComponent implements OnInit{
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
       this.saveLocalStorage();
+
     })
   }
 
@@ -90,13 +88,12 @@ export class CartComponent implements OnInit{
     this.cartService.decreaseProduct(product);
     this.cartService.currentDataCart$.subscribe(cart => {
       this.cart = cart;
+      if (this.cart.length === 0) {
+        this.totalPrice = 0;
+        this.totalQuantity = 0;
+      }
       this.saveLocalStorage();
     })
-    if (this.cart.length === 0) {
-      // this.buttonDisabled = true;
-      this.totalPrice = 0;
-      this.totalQuantity = 0;
-      this.saveLocalStorage()
-    }
+
   }
 }
