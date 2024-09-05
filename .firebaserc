@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "audiophile-eccomerce"
-  }
+    "default": "audiophile-eccomerce",
+    "audiophile": "audiophile-eccomerce"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
