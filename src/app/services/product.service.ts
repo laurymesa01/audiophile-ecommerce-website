@@ -8,7 +8,7 @@ import { Products } from '../interfaces/product.interface';
 })
 export class ProductService {
 
-  url = 'https://audiophile-api-2.onrender.com'
+  url = 'https://json-server-audiophile.vercel.app';
 
   constructor(private http: HttpClient) { }
 
